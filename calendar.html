@@ -299,25 +299,29 @@
         .day-cell.rest { background: var(--accent-rest); color: var(--text-secondary); }
         .day-cell.race { background: var(--gradient-race); color: #000; font-weight: 700; }
         .day-cell.brick { background: linear-gradient(135deg, var(--accent-bike) 50%, var(--accent-run) 50%); color: #000; }
-        .day-cell.double { box-shadow: 0 0 0 2px var(--accent-strength); }
 
         /* Completed state */
+        .day-cell.done {
+            box-shadow: 0 0 0 3px var(--accent-done);
+        }
+
         .day-cell.done::after {
             content: '✓';
             position: absolute;
-            top: -4px;
-            right: -4px;
+            top: -6px;
+            right: -6px;
             background: var(--accent-done);
             color: white;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            font-size: 10px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            border: 2px solid white;
         }
 
         /* Skipped state */
@@ -328,19 +332,20 @@
         .day-cell.skipped::after {
             content: '✗';
             position: absolute;
-            top: -4px;
-            right: -4px;
+            top: -6px;
+            right: -6px;
             background: var(--accent-skipped);
             color: white;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            font-size: 10px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            border: 2px solid white;
         }
 
         .week-progress {
@@ -898,12 +903,6 @@
         <header>
             <h1>🏊‍♂️ Training Calendar 2026 🚴‍♂️🏃‍♂️</h1>
             <p class="subtitle">33-Week Half Ironman Season | January 2 - August 16</p>
-            <div class="race-badges">
-                <div class="race-badge a-race">🏁 May 24 - Grizzlyman (A)</div>
-                <div class="race-badge">🏁 Jun 7 - Czechman (B)</div>
-                <div class="race-badge a-race">🏁 Jul 12 - Vitoria-Gasteiz (A)</div>
-                <div class="race-badge">🏁 Aug 16 - Hradec Králové (B)</div>
-            </div>
         </header>
 
         <!-- Cloud Sync Bar -->
@@ -965,6 +964,14 @@
             </div>
         </div>
 
+        <!-- Race Calendar -->
+        <div class="race-badges" style="margin-top: 1.5rem;">
+            <div class="race-badge a-race">🏁 May 24 - Grizzlyman (A)</div>
+            <div class="race-badge">🏁 Jun 7 - Czechman (B)</div>
+            <div class="race-badge a-race">🏁 Jul 12 - Vitoria-Gasteiz (A)</div>
+            <div class="race-badge">🏁 Aug 16 - Hradec Králové (B)</div>
+        </div>
+
         <!-- Backup Section -->
         <div class="sync-section" style="margin-top: 2rem;">
             <div class="sync-header">
@@ -987,37 +994,9 @@
             <div id="backupStatus"></div>
         </div>
 
-        <!-- Sync Section -->
-        <div class="sync-section" style="margin-top: 1rem;">
-            <div class="sync-header">
-                <span class="sync-title">🔄 Sync Between Devices</span>
-                <span class="sync-subtitle">Share your progress with iPhone, iPad, or another computer</span>
-            </div>
-            <div class="sync-grid">
-                <div class="sync-box">
-                    <div class="sync-box-title">📤 Generate Share Code</div>
-                    <div class="sync-box-desc">Create a code containing all your progress. Copy and paste it on another device.</div>
-                    <div class="sync-code-display" id="shareCodeDisplay">Click button to generate...</div>
-                    <button class="sync-btn" onclick="generateShareCode()">Generate Code</button>
-                    <div id="generateStatus"></div>
-                </div>
-                <div class="sync-box">
-                    <div class="sync-box-title">📥 Import Share Code</div>
-                    <div class="sync-box-desc">Paste a share code from another device to load that progress here.</div>
-                    <textarea class="sync-code-input" id="importCodeInput" placeholder="Paste your share code here..."></textarea>
-                    <button class="sync-btn import" onclick="importShareCode()">Import & Sync</button>
-                    <div id="importStatus"></div>
-                </div>
-            </div>
-            <div class="sync-info">
-                <strong>💡 How it works:</strong> Generate a code on your Mac → Copy it → Open calendar on iPhone → Paste code → Import. 
-                Your workouts marked as Done/Skipped and all notes will sync!
-            </div>
-        </div>
-
         <footer>
             <p>Training Plan generated January 2, 2026 | Ready to crush it! 💪</p>
-            <p style="margin-top: 0.5rem; font-size: 0.75rem;">Your progress is saved automatically in your browser</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">☁️ Cloud Sync enabled - your progress syncs automatically</p>
         </footer>
     </div>
 
