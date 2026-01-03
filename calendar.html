@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Calendar 2026 | Half Ironman Season</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #242432;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888a0;
+            --text-muted: #555566;
+            --accent-swim: #00d4ff;
+            --accent-bike: #ff6b35;
+            --accent-run: #7cff6b;
+            --accent-strength: #c77dff;
+            --accent-rest: #444455;
+            --accent-race: #ffd700;
+            --accent-recovery: #4a9eff;
+            --border: #2a2a3a;
+            --gradient-swim: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-bike: linear-gradient(135deg, #ff6b35 0%, #cc4400 100%);
+            --gradient-run: linear-gradient(135deg, #7cff6b 0%, #44cc33 100%);
+            --gradient-strength: linear-gradient(135deg, #c77dff 0%, #9944cc 100%);
+            --gradient-race: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-swim), var(--accent-run));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .race-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .race-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-race);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .race-badge.a-race {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .legend-color.swim { background: var(--gradient-swim); }
+        .legend-color.bike { background: var(--gradient-bike); }
+        .legend-color.run { background: var(--gradient-run); }
+        .legend-color.strength { background: var(--gradient-strength); }
+        .legend-color.race { background: var(--gradient-race); }
+        .legend-color.rest { background: var(--accent-rest); }
+
+        .phase-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .phase-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+
+        .phase-btn:hover, .phase-btn.active {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-swim);
+        }
+
+        /* Progress Bar */
+        .overall-progress {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .progress-stats {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-swim), var(--accent-bike), var(--accent-run));
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .month-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .month-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .month-stats {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .week-row {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border-left: 3px solid var(--border);
+        }
+
+        .week-row.recovery { border-left-color: var(--accent-recovery); }
+        .week-row.race-week { border-left-color: var(--accent-race); background: rgba(255, 215, 0, 0.05); }
+        .week-row.taper { border-left-color: var(--accent-swim); }
+        .week-row.progression { border-left-color: var(--accent-run); }
+        .week-row.build { border-left-color: var(--accent-bike); }
+
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .week-number {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .week-phase {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .week-days {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-cell {
+            flex: 1;
+            aspect-ratio: 1;
+            min-width: 32px;
+            max-width: 40px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .day-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .day-cell.swim { background: var(--gradient-swim); color: #000; }
+        .day-cell.bike { background: var(--gradient-bike); color: #000; }
+        .day-cell.run { background: var(--gradient-run); color: #000; }
+        .day-cell.strength { background: var(--gradient-strength); color: #000; }
+        .day-cell.rest { background: var(--accent-rest); color: var(--text-secondary); }
+        .day-cell.race { background: var(--gradient-race); color: #000; font-weight: 700; }
+        .day-cell.brick { background: linear-gradient(135deg, var(--accent-bike) 50%, var(--accent-run) 50%); color: #000; }
+        .day-cell.double { box-shadow: 0 0 0 2px var(--accent-strength); }
+
+        /* Completed state */
+        .day-cell.done::after {
+            content: '✓';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent-done);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Skipped state */
+        .day-cell.skipped {
+            opacity: 0.5;
+        }
+
+        .day-cell.skipped::after {
+            content: '✗';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent-skipped);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .week-progress {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-done);
+        }
+
+        .day-date {
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .day-type {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .week-totals {
+            display: flex;
+            gap: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        .total-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .total-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        .total-icon.swim { background: var(--accent-swim); }
+        .total-icon.bike { background: var(--accent-bike); }
+        .total-icon.run { background: var(--accent-run); }
+
+        .tooltip {
+            position: fixed;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 12px;
+            max-width: 280px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        .tooltip-date {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .tooltip-session {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .tooltip-details {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tooltip-status {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+        }
+
+        .tooltip-status.done { color: var(--accent-done); }
+        .tooltip-status.skipped { color: var(--accent-skipped); }
+
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-value.swim { color: var(--accent-swim); }
+        .stat-value.bike { color: var(--accent-bike); }
+        .stat-value.run { color: var(--accent-run); }
+        .stat-value.total { color: var(--accent-race); }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Sync Section */
+        .sync-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .sync-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .sync-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .sync-subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .sync-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .sync-grid { grid-template-columns: 1fr; }
+        }
+
+        .sync-box {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        .sync-box-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sync-box-desc {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .sync-code-display {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            word-break: break-all;
+            max-height: 80px;
+            overflow-y: auto;
+            color: var(--accent-swim);
+            margin-bottom: 0.75rem;
+        }
+
+        .sync-code-input {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .sync-code-input:focus {
+            outline: none;
+            border-color: var(--accent-swim);
+        }
+
+        .sync-btn {
+            background: var(--accent-swim);
+            color: #000;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .sync-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .sync-btn.import {
+            background: var(--accent-done);
+        }
+
+        .sync-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .sync-success {
+            color: var(--accent-done);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .sync-error {
+            color: var(--accent-skipped);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .sync-info {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .sync-info strong {
+            color: var(--accent-swim);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid var(--border);
+            transform: scale(0.9);
+            transition: transform 0.2s;
+        }
+
+        .modal-overlay.visible .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-detail {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .modal-label {
+            color: var(--text-muted);
+            min-width: 70px;
+        }
+
+        .modal-value {
+            color: var(--text-primary);
+        }
+
+        .modal-notes {
+            margin-top: 1rem;
+        }
+
+        .modal-notes label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-notes textarea {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .modal-notes textarea:focus {
+            outline: none;
+            border-color: var(--accent-swim);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn.done {
+            background: var(--accent-done);
+            color: white;
+        }
+
+        .modal-btn.done:hover {
+            filter: brightness(1.1);
+        }
+
+        .modal-btn.skipped {
+            background: var(--accent-skipped);
+            color: white;
+        }
+
+        .modal-btn.skipped:hover {
+            filter: brightness(1.1);
+        }
+
+        .modal-btn.reset {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .modal-btn.reset:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.75rem; }
+            .calendar-grid { grid-template-columns: 1fr; }
+            .race-badges { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏊‍♂️ Training Calendar 2026 🚴‍♂️🏃‍♂️</h1>
+            <p class="subtitle">33-Week Half Ironman Season | January 2 - August 16</p>
+            <div class="race-badges">
+                <div class="race-badge a-race">🏁 May 24 - Grizzlyman (A)</div>
+                <div class="race-badge">🏁 Jun 7 - Czechman (B)</div>
+                <div class="race-badge a-race">🏁 Jul 12 - Vitoria-Gasteiz (A)</div>
+                <div class="race-badge">🏁 Aug 16 - Hradec Králové (B)</div>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="overall-progress">
+            <div class="progress-header">
+                <span class="progress-title">Season Progress</span>
+                <span class="progress-stats" id="progressStats">0 / 0 workouts</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color swim"></div> Swim</div>
+            <div class="legend-item"><div class="legend-color bike"></div> Bike</div>
+            <div class="legend-item"><div class="legend-color run"></div> Run</div>
+            <div class="legend-item"><div class="legend-color strength"></div> Strength</div>
+            <div class="legend-item"><div class="legend-color race"></div> Race Day</div>
+            <div class="legend-item"><div class="legend-color rest"></div> Rest</div>
+        </div>
+
+        <div class="calendar-grid" id="calendar">
+            <!-- Calendar will be generated by JavaScript -->
+        </div>
+
+        <div class="stats-summary">
+            <div class="stat-card">
+                <div class="stat-value swim">~95 km</div>
+                <div class="stat-label">Total Swim</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bike">~2,400 km</div>
+                <div class="stat-label">Total Bike</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value run">~620 km</div>
+                <div class="stat-label">Total Run</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value total">4 Races</div>
+                <div class="stat-label">Half Ironmans</div>
+            </div>
+        </div>
+
+        <!-- Backup Section -->
+        <div class="sync-section" style="margin-top: 2rem;">
+            <div class="sync-header">
+                <span class="sync-title">💾 Backup & Restore</span>
+                <span class="sync-subtitle">Save your progress to a file for safekeeping</span>
+            </div>
+            <div class="sync-grid">
+                <div class="sync-box">
+                    <div class="sync-box-title">⬇️ Download Backup</div>
+                    <div class="sync-box-desc">Save all your progress to a JSON file. Keep it in iCloud for extra safety!</div>
+                    <button class="sync-btn" onclick="downloadBackup()">Download Backup</button>
+                </div>
+                <div class="sync-box">
+                    <div class="sync-box-title">⬆️ Load from Backup</div>
+                    <div class="sync-box-desc">Restore progress from a previously saved backup file.</div>
+                    <input type="file" id="backupFileInput" accept=".json" style="display: none;" onchange="loadBackupFile(event)">
+                    <button class="sync-btn import" onclick="triggerFileInput()">Load Backup File</button>
+                </div>
+            </div>
+            <div id="backupStatus"></div>
+        </div>
+
+        <!-- Sync Section -->
+        <div class="sync-section" style="margin-top: 1rem;">
+            <div class="sync-header">
+                <span class="sync-title">🔄 Sync Between Devices</span>
+                <span class="sync-subtitle">Share your progress with iPhone, iPad, or another computer</span>
+            </div>
+            <div class="sync-grid">
+                <div class="sync-box">
+                    <div class="sync-box-title">📤 Generate Share Code</div>
+                    <div class="sync-box-desc">Create a code containing all your progress. Copy and paste it on another device.</div>
+                    <div class="sync-code-display" id="shareCodeDisplay">Click button to generate...</div>
+                    <button class="sync-btn" onclick="generateShareCode()">Generate Code</button>
+                    <div id="generateStatus"></div>
+                </div>
+                <div class="sync-box">
+                    <div class="sync-box-title">📥 Import Share Code</div>
+                    <div class="sync-box-desc">Paste a share code from another device to load that progress here.</div>
+                    <textarea class="sync-code-input" id="importCodeInput" placeholder="Paste your share code here..."></textarea>
+                    <button class="sync-btn import" onclick="importShareCode()">Import & Sync</button>
+                    <div id="importStatus"></div>
+                </div>
+            </div>
+            <div class="sync-info">
+                <strong>💡 How it works:</strong> Generate a code on your Mac → Copy it → Open calendar on iPhone → Paste code → Import. 
+                Your workouts marked as Done/Skipped and all notes will sync!
+            </div>
+        </div>
+
+        <footer>
+            <p>Training Plan generated January 2, 2026 | Ready to crush it! 💪</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">Your progress is saved automatically in your browser</p>
+        </footer>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Modal for workout details -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <div class="modal-title" id="modalTitle">Workout</div>
+                    <div class="modal-date" id="modalDate">Date</div>
+                </div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="modal-detail">
+                    <span class="modal-label">Type:</span>
+                    <span class="modal-value" id="modalType">-</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-label">Duration:</span>
+                    <span class="modal-value" id="modalDuration">-</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-label">Details:</span>
+                    <span class="modal-value" id="modalDetails">-</span>
+                </div>
+                <div class="modal-notes">
+                    <label for="modalNotesInput">Notes (e.g., "Swapped to trainer", "Felt great!")</label>
+                    <textarea id="modalNotesInput" placeholder="Add your notes here..."></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn done" onclick="markDone()">✓ Done</button>
+                <button class="modal-btn skipped" onclick="markSkipped()">✗ Skipped</button>
+                <button class="modal-btn reset" onclick="markReset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-generate IDs for each workout
+        function addWorkoutIds(data) {
+            data.forEach(week => {
+                week.days.forEach((day, dayIndex) => {
+                    day.id = `w${week.week}d${dayIndex + 1}`;
+                });
+            });
+            return data;
+        }
+
+        const trainingData = addWorkoutIds([
+            // Week 1 - Intro (Jan 2-4)
+            { week: 1, phase: "Intro", days: [
+                { date: "Jan 2", day: "Fri", type: "swim", main: "Swim", duration: 50, details: "1500m easy technique focus" },
+                { date: "Jan 3", day: "Sat", type: "bike", main: "Bike", duration: 75, details: "Long endurance ROUVY" },
+                { date: "Jan 4", day: "Sun", type: "run", main: "Run + Strength", duration: 90, details: "8km easy + full body intro", double: true }
+            ], totals: { swim: 1.5, bike: 30, run: 8 }},
+            
+            // Week 2 - Initial (Jan 5-11)
+            { week: 2, phase: "Initial", days: [
+                { date: "Jan 5", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Jan 6", day: "Tue", type: "swim", main: "Swim", duration: 60, details: "1800m Drill and Build" },
+                { date: "Jan 7", day: "Wed", type: "run", main: "Run", duration: 50, details: "7km easy aerobic" },
+                { date: "Jan 8", day: "Thu", type: "bike", main: "Bike + Strength", duration: 105, details: "ROUVY + PULL", double: true },
+                { date: "Jan 9", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Jan 10", day: "Sat", type: "bike", main: "Bike", duration: 80, details: "Long endurance" },
+                { date: "Jan 11", day: "Sun", type: "run", main: "Run", duration: 70, details: "10km long run" }
+            ], totals: { swim: 1.8, bike: 60, run: 17 }},
+            
+            // Week 3 - Initial (Jan 12-18)
+            { week: 3, phase: "Initial", days: [
+                { date: "Jan 12", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Jan 13", day: "Tue", type: "swim", main: "Swim", duration: 60, details: "1900m technique" },
+                { date: "Jan 14", day: "Wed", type: "run", main: "Run", duration: 55, details: "8km easy + strides" },
+                { date: "Jan 15", day: "Thu", type: "bike", main: "Bike + Strength", duration: 110, details: "ROUVY + PULL", double: true },
+                { date: "Jan 16", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Jan 17", day: "Sat", type: "bike", main: "Bike", duration: 90, details: "Long + hills" },
+                { date: "Jan 18", day: "Sun", type: "run", main: "Run", duration: 75, details: "11km long run" }
+            ], totals: { swim: 1.9, bike: 65, run: 19 }},
+            
+            // Week 4 - Initial (Jan 19-25)
+            { week: 4, phase: "Initial", days: [
+                { date: "Jan 19", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Jan 20", day: "Tue", type: "swim", main: "Swim", duration: 65, details: "2000m drill + endurance" },
+                { date: "Jan 21", day: "Wed", type: "run", main: "Run", duration: 55, details: "8km easy + strides" },
+                { date: "Jan 22", day: "Thu", type: "bike", main: "Bike + Strength", duration: 115, details: "ROUVY + PULL", double: true },
+                { date: "Jan 23", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Jan 24", day: "Sat", type: "bike", main: "Bike", duration: 95, details: "Long endurance" },
+                { date: "Jan 25", day: "Sun", type: "run", main: "Run", duration: 80, details: "12km long run" }
+            ], totals: { swim: 2.0, bike: 70, run: 20 }},
+            
+            // Week 5 - Recovery (Jan 26 - Feb 1)
+            { week: 5, phase: "Recovery", recovery: true, days: [
+                { date: "Jan 26", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "PUSH + CORE light" },
+                { date: "Jan 27", day: "Tue", type: "swim", main: "Swim", duration: 50, details: "1500m easy technique" },
+                { date: "Jan 28", day: "Wed", type: "run", main: "Run", duration: 40, details: "6km easy recovery" },
+                { date: "Jan 29", day: "Thu", type: "bike", main: "Bike", duration: 55, details: "Easy ROUVY" },
+                { date: "Jan 30", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Active recovery" },
+                { date: "Jan 31", day: "Sat", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "Feb 1", day: "Sun", type: "brick", main: "Bike + Run", duration: 85, details: "Easy brick workout" }
+            ], totals: { swim: 1.5, bike: 42, run: 11 }},
+            
+            // Week 6 - Initial (Feb 2-8)
+            { week: 6, phase: "Initial", days: [
+                { date: "Feb 2", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Feb 3", day: "Tue", type: "swim", main: "Swim", duration: 65, details: "2100m technique" },
+                { date: "Feb 4", day: "Wed", type: "run", main: "Run", duration: 55, details: "8km easy" },
+                { date: "Feb 5", day: "Thu", type: "bike", main: "Bike + Strength", duration: 120, details: "ROUVY + PULL", double: true },
+                { date: "Feb 6", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Feb 7", day: "Sat", type: "bike", main: "Bike", duration: 100, details: "Long endurance" },
+                { date: "Feb 8", day: "Sun", type: "run", main: "Run", duration: 80, details: "12km long run" }
+            ], totals: { swim: 2.1, bike: 74, run: 20 }},
+            
+            // Week 7 - Initial (Feb 9-15)
+            { week: 7, phase: "Initial", days: [
+                { date: "Feb 9", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Feb 10", day: "Tue", type: "swim", main: "Swim", duration: 65, details: "2200m drill + endurance" },
+                { date: "Feb 11", day: "Wed", type: "run", main: "Run", duration: 60, details: "9km easy + strides" },
+                { date: "Feb 12", day: "Thu", type: "bike", main: "Bike + Strength", duration: 125, details: "ROUVY + PULL", double: true },
+                { date: "Feb 13", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Feb 14", day: "Sat", type: "bike", main: "Bike", duration: 105, details: "Long + hills" },
+                { date: "Feb 15", day: "Sun", type: "run", main: "Run", duration: 85, details: "13km long run" }
+            ], totals: { swim: 2.2, bike: 80, run: 22 }},
+            
+            // Week 8 - Initial (Feb 16-22)
+            { week: 8, phase: "Initial", days: [
+                { date: "Feb 16", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Feb 17", day: "Tue", type: "swim", main: "CSS Test", duration: 70, details: "2400m - 400m TT + 200m TT" },
+                { date: "Feb 18", day: "Wed", type: "run", main: "Run", duration: 60, details: "9km easy" },
+                { date: "Feb 19", day: "Thu", type: "bike", main: "Bike + Strength", duration: 125, details: "ROUVY + PULL", double: true },
+                { date: "Feb 20", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Feb 21", day: "Sat", type: "bike", main: "Bike", duration: 110, details: "3h+ long ride" },
+                { date: "Feb 22", day: "Sun", type: "run", main: "Run", duration: 90, details: "14km long run" }
+            ], totals: { swim: 2.4, bike: 83, run: 23 }},
+            
+            // Week 9 - Recovery (Feb 23 - Mar 1)
+            { week: 9, phase: "Recovery", recovery: true, days: [
+                { date: "Feb 23", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "PUSH + CORE light" },
+                { date: "Feb 24", day: "Tue", type: "swim", main: "Swim", duration: 50, details: "1600m easy" },
+                { date: "Feb 25", day: "Wed", type: "run", main: "Run", duration: 40, details: "6km easy" },
+                { date: "Feb 26", day: "Thu", type: "bike", main: "Bike", duration: 55, details: "Easy ROUVY" },
+                { date: "Feb 27", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Active recovery" },
+                { date: "Feb 28", day: "Sat", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "Mar 1", day: "Sun", type: "brick", main: "Bike + Run", duration: 90, details: "Easy brick" }
+            ], totals: { swim: 1.6, bike: 50, run: 11 }},
+            
+            // Week 10 - Initial Peak (Mar 2-8)
+            { week: 10, phase: "Initial", days: [
+                { date: "Mar 2", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Mar 3", day: "Tue", type: "swim", main: "Swim", duration: 70, details: "2700m threshold" },
+                { date: "Mar 4", day: "Wed", type: "run", main: "Run", duration: 65, details: "10km easy" },
+                { date: "Mar 5", day: "Thu", type: "bike", main: "Bike + Strength", duration: 135, details: "ROUVY + hills + PULL", double: true },
+                { date: "Mar 6", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Mar 7", day: "Sat", type: "bike", main: "Bike", duration: 120, details: "Long endurance" },
+                { date: "Mar 8", day: "Sun", type: "run", main: "Run", duration: 95, details: "15km long run" }
+            ], totals: { swim: 2.7, bike: 94, run: 25 }},
+            
+            // Week 11 - Progression (Mar 9-15)
+            { week: 11, phase: "Progression", progression: true, days: [
+                { date: "Mar 9", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Mar 10", day: "Tue", type: "swim", main: "Swim", duration: 70, details: "2500m threshold pyramid" },
+                { date: "Mar 11", day: "Wed", type: "run", main: "Tempo Run", duration: 60, details: "9km with 25min tempo" },
+                { date: "Mar 12", day: "Thu", type: "bike", main: "Sweet Spot + Strength", duration: 120, details: "3x12min @ SS + PULL", double: true },
+                { date: "Mar 13", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Mar 14", day: "Sat", type: "bike", main: "Bike", duration: 120, details: "Long + hills" },
+                { date: "Mar 15", day: "Sun", type: "run", main: "Run", duration: 95, details: "15km moderate" }
+            ], totals: { swim: 2.5, bike: 88, run: 24 }},
+            
+            // Week 12 - Progression (Mar 16-22)
+            { week: 12, phase: "Progression", progression: true, days: [
+                { date: "Mar 16", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Mar 17", day: "Tue", type: "swim", main: "Swim", duration: 70, details: "2600m race pace" },
+                { date: "Mar 18", day: "Wed", type: "run", main: "Hill Intervals", duration: 60, details: "9km + 6x3min hills" },
+                { date: "Mar 19", day: "Thu", type: "bike", main: "Hill Repeats", duration: 125, details: "6x5min @ 90% FTP + PULL", double: true },
+                { date: "Mar 20", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Mar 21", day: "Sat", type: "bike", main: "Bike", duration: 130, details: "Long with climbs" },
+                { date: "Mar 22", day: "Sun", type: "run", main: "Run", duration: 100, details: "16km long run" }
+            ], totals: { swim: 2.6, bike: 95, run: 25 }},
+            
+            // Week 13 - Progression (Mar 23-29)
+            { week: 13, phase: "Progression", progression: true, days: [
+                { date: "Mar 23", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Mar 24", day: "Tue", type: "swim", main: "Race Simulation", duration: 70, details: "2700m - 1900m straight" },
+                { date: "Mar 25", day: "Wed", type: "run", main: "Intervals", duration: 60, details: "10km with 5x1km fast" },
+                { date: "Mar 26", day: "Thu", type: "bike", main: "Threshold Blocks", duration: 130, details: "2x20min @ FTP + PULL", double: true },
+                { date: "Mar 27", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Mar 28", day: "Sat", type: "bike", main: "Bike", duration: 135, details: "Long + race pace" },
+                { date: "Mar 29", day: "Sun", type: "run", main: "Run", duration: 100, details: "16km long run" }
+            ], totals: { swim: 2.7, bike: 100, run: 26 }},
+            
+            // Week 14 - Recovery (Mar 30 - Apr 5)
+            { week: 14, phase: "Recovery", recovery: true, days: [
+                { date: "Mar 30", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "PUSH + CORE light" },
+                { date: "Mar 31", day: "Tue", type: "swim", main: "Swim", duration: 55, details: "1800m easy" },
+                { date: "Apr 1", day: "Wed", type: "run", main: "Run", duration: 45, details: "7km easy" },
+                { date: "Apr 2", day: "Thu", type: "bike", main: "Bike", duration: 60, details: "Easy endurance" },
+                { date: "Apr 3", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Active recovery" },
+                { date: "Apr 4", day: "Sat", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "Apr 5", day: "Sun", type: "brick", main: "Bike + Run", duration: 100, details: "Easy brick" }
+            ], totals: { swim: 1.8, bike: 60, run: 13 }},
+            
+            // Week 15 - Progression (Apr 6-12)
+            { week: 15, phase: "Progression", progression: true, days: [
+                { date: "Apr 6", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Apr 7", day: "Tue", type: "swim", main: "Swim", duration: 75, details: "2800m race pace" },
+                { date: "Apr 8", day: "Wed", type: "run", main: "Tempo", duration: 65, details: "10km with 30min tempo" },
+                { date: "Apr 9", day: "Thu", type: "bike", main: "Sweet Spot + Hills", duration: 130, details: "4x10min SS + PULL", double: true },
+                { date: "Apr 10", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Apr 11", day: "Sat", type: "bike", main: "Bike", duration: 140, details: "Long + climbs" },
+                { date: "Apr 12", day: "Sun", type: "run", main: "Run", duration: 100, details: "16km + strides" }
+            ], totals: { swim: 2.8, bike: 100, run: 26 }},
+            
+            // Week 16 - Progression Peak (Apr 13-19)
+            { week: 16, phase: "Progression", progression: true, days: [
+                { date: "Apr 13", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Apr 14", day: "Tue", type: "swim", main: "Swim", duration: 75, details: "2900m threshold" },
+                { date: "Apr 15", day: "Wed", type: "run", main: "Intervals", duration: 65, details: "10km with 6x1km" },
+                { date: "Apr 16", day: "Thu", type: "bike", main: "Threshold Blocks", duration: 135, details: "2x25min @ FTP + PULL", double: true },
+                { date: "Apr 17", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Apr 18", day: "Sat", type: "bike", main: "Peak Long", duration: 150, details: "Longest ride + nutrition" },
+                { date: "Apr 19", day: "Sun", type: "run", main: "Run", duration: 105, details: "17km long run" }
+            ], totals: { swim: 2.9, bike: 105, run: 27 }},
+            
+            // Week 17 - Race Simulation (Apr 20-26)
+            { week: 17, phase: "Progression", progression: true, days: [
+                { date: "Apr 20", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Apr 21", day: "Tue", type: "swim", main: "Race Sim", duration: 75, details: "2900m race effort" },
+                { date: "Apr 22", day: "Wed", type: "run", main: "Race Effort", duration: 65, details: "10km race pace" },
+                { date: "Apr 23", day: "Thu", type: "bike", main: "Race Effort", duration: 135, details: "90km race power + PULL", double: true },
+                { date: "Apr 24", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Apr 25", day: "Sat", type: "brick", main: "DRESS REHEARSAL", duration: 190, details: "Full race simulation!" },
+                { date: "Apr 26", day: "Sun", type: "run", main: "Recovery", duration: 60, details: "10km easy recovery" }
+            ], totals: { swim: 2.9, bike: 105, run: 28 }},
+            
+            // Week 18 - Recovery (Apr 27 - May 3)
+            { week: 18, phase: "Recovery", recovery: true, days: [
+                { date: "Apr 27", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "Light work" },
+                { date: "Apr 28", day: "Tue", type: "swim", main: "Swim", duration: 60, details: "2000m easy technique" },
+                { date: "Apr 29", day: "Wed", type: "run", main: "Run", duration: 50, details: "8km easy" },
+                { date: "Apr 30", day: "Thu", type: "bike", main: "Bike", duration: 70, details: "Easy endurance" },
+                { date: "May 1", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Active recovery" },
+                { date: "May 2", day: "Sat", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "May 3", day: "Sun", type: "brick", main: "Bike + Run", duration: 115, details: "Easy brick" }
+            ], totals: { swim: 2.0, bike: 70, run: 15 }},
+            
+            // Week 19 - Taper (May 4-10)
+            { week: 19, phase: "Taper", taper: true, days: [
+                { date: "May 4", day: "Mon", type: "strength", main: "Strength", duration: 40, details: "PUSH + CORE" },
+                { date: "May 5", day: "Tue", type: "swim", main: "Race Touches", duration: 60, details: "2200m race pace" },
+                { date: "May 6", day: "Wed", type: "run", main: "Race Pace", duration: 50, details: "8km with race segments" },
+                { date: "May 7", day: "Thu", type: "bike", main: "Race Intervals", duration: 80, details: "4x8min race power" },
+                { date: "May 8", day: "Fri", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "May 9", day: "Sat", type: "bike", main: "Bike", duration: 100, details: "Moderate long" },
+                { date: "May 10", day: "Sun", type: "run", main: "Last Long", duration: 75, details: "12km - last long run" }
+            ], totals: { swim: 2.2, bike: 77, run: 20 }},
+            
+            // Week 20 - Taper (May 11-17)
+            { week: 20, phase: "Taper", taper: true, days: [
+                { date: "May 11", day: "Mon", type: "strength", main: "Strength Light", duration: 30, details: "Light maintenance" },
+                { date: "May 12", day: "Tue", type: "swim", main: "Openers", duration: 50, details: "1600m with openers" },
+                { date: "May 13", day: "Wed", type: "run", main: "Easy + Strides", duration: 40, details: "6km easy + strides" },
+                { date: "May 14", day: "Thu", type: "bike", main: "Easy + Touches", duration: 60, details: "Easy + race power" },
+                { date: "May 15", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Complete rest" },
+                { date: "May 16", day: "Sat", type: "bike", main: "Easy", duration: 70, details: "Easy endurance" },
+                { date: "May 17", day: "Sun", type: "run", main: "Easy", duration: 55, details: "9km easy" }
+            ], totals: { swim: 1.6, bike: 55, run: 15 }},
+            
+            // Week 21 - RACE WEEK Grizzlyman (May 18-24)
+            { week: 21, phase: "RACE", raceWeek: true, days: [
+                { date: "May 18", day: "Mon", type: "strength", main: "Core Only", duration: 25, details: "Light core" },
+                { date: "May 19", day: "Tue", type: "swim", main: "Openers", duration: 40, details: "1200m easy openers" },
+                { date: "May 20", day: "Wed", type: "run", main: "Easy + Strides", duration: 30, details: "5km + strides" },
+                { date: "May 21", day: "Thu", type: "bike", main: "Easy Spin", duration: 45, details: "Easy + openers" },
+                { date: "May 22", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Complete rest" },
+                { date: "May 23", day: "Sat", type: "brick", main: "Shake Out", duration: 50, details: "10min swim + 15min bike" },
+                { date: "May 24", day: "Sun", type: "race", main: "🏁 GRIZZLYMAN", duration: 300, details: "Half Ironman - A RACE!" }
+            ], totals: { swim: 3.6, bike: 125, run: 26 }},
+            
+            // Week 22 - Recovery (May 25-31)
+            { week: 22, phase: "Recovery", recovery: true, days: [
+                { date: "May 25", day: "Mon", type: "rest", main: "REST", duration: 0, details: "Complete rest - celebrate!" },
+                { date: "May 26", day: "Tue", type: "swim", main: "Easy", duration: 30, details: "800m recovery" },
+                { date: "May 27", day: "Wed", type: "rest", main: "Walk", duration: 30, details: "Easy walk" },
+                { date: "May 28", day: "Thu", type: "bike", main: "Very Easy", duration: 40, details: "Recovery spin" },
+                { date: "May 29", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Rest" },
+                { date: "May 30", day: "Sat", type: "run", main: "Easy Jog", duration: 30, details: "4km very easy" },
+                { date: "May 31", day: "Sun", type: "bike", main: "Easy", duration: 50, details: "Easy endurance" }
+            ], totals: { swim: 0.8, bike: 35, run: 4 }},
+            
+            // Week 23 - RACE WEEK Czechman (Jun 1-7)
+            { week: 23, phase: "RACE", raceWeek: true, days: [
+                { date: "Jun 1", day: "Mon", type: "strength", main: "Light Full Body", duration: 30, details: "Very light" },
+                { date: "Jun 2", day: "Tue", type: "swim", main: "Easy", duration: 40, details: "1200m technique" },
+                { date: "Jun 3", day: "Wed", type: "run", main: "Easy", duration: 35, details: "5km easy" },
+                { date: "Jun 4", day: "Thu", type: "bike", main: "Easy + Openers", duration: 50, details: "Easy spin" },
+                { date: "Jun 5", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Rest before race" },
+                { date: "Jun 6", day: "Sat", type: "brick", main: "Shake Out", duration: 35, details: "Openers" },
+                { date: "Jun 7", day: "Sun", type: "race", main: "🏁 CZECHMAN", duration: 270, details: "Half Ironman - B RACE" }
+            ], totals: { swim: 3.5, bike: 120, run: 26 }},
+            
+            // Week 24 - Build 2 (Jun 8-14)
+            { week: 24, phase: "Build 2", build: true, days: [
+                { date: "Jun 8", day: "Mon", type: "rest", main: "REST", duration: 0, details: "Complete rest" },
+                { date: "Jun 9", day: "Tue", type: "swim", main: "Easy", duration: 45, details: "1500m easy" },
+                { date: "Jun 10", day: "Wed", type: "run", main: "Easy", duration: 40, details: "6km easy" },
+                { date: "Jun 11", day: "Thu", type: "bike", main: "Bike + Strength", duration: 100, details: "Easy + PULL", double: true },
+                { date: "Jun 12", day: "Fri", type: "strength", main: "Strength", duration: 35, details: "LEGS light" },
+                { date: "Jun 13", day: "Sat", type: "bike", main: "Bike", duration: 95, details: "Moderate endurance" },
+                { date: "Jun 14", day: "Sun", type: "run", main: "Run", duration: 65, details: "10km easy" }
+            ], totals: { swim: 1.5, bike: 68, run: 16 }},
+            
+            // Week 25 - Build 2 (Jun 15-21)
+            { week: 25, phase: "Build 2", build: true, days: [
+                { date: "Jun 15", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Jun 16", day: "Tue", type: "swim", main: "Threshold", duration: 65, details: "2200m threshold" },
+                { date: "Jun 17", day: "Wed", type: "run", main: "Tempo", duration: 55, details: "9km tempo 20min" },
+                { date: "Jun 18", day: "Thu", type: "bike", main: "Sweet Spot", duration: 120, details: "3x12min SS + PULL", double: true },
+                { date: "Jun 19", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Jun 20", day: "Sat", type: "bike", main: "Bike", duration: 115, details: "Long + hills" },
+                { date: "Jun 21", day: "Sun", type: "run", main: "Run", duration: 80, details: "13km long run" }
+            ], totals: { swim: 2.2, bike: 86, run: 22 }},
+            
+            // Week 26 - Build 2 Peak (Jun 22-28)
+            { week: 26, phase: "Build 2", build: true, days: [
+                { date: "Jun 22", day: "Mon", type: "strength", main: "Strength", duration: 45, details: "PUSH + CORE" },
+                { date: "Jun 23", day: "Tue", type: "swim", main: "Race Pace", duration: 70, details: "2600m race pace" },
+                { date: "Jun 24", day: "Wed", type: "run", main: "Intervals", duration: 60, details: "10km with 5x1km" },
+                { date: "Jun 25", day: "Thu", type: "bike", main: "Threshold", duration: 130, details: "2x20min FTP + PULL", double: true },
+                { date: "Jun 26", day: "Fri", type: "strength", main: "Strength", duration: 40, details: "LEGS" },
+                { date: "Jun 27", day: "Sat", type: "bike", main: "Long Sim", duration: 120, details: "Race simulation - flat fast" },
+                { date: "Jun 28", day: "Sun", type: "run", main: "Run", duration: 85, details: "14km long run" }
+            ], totals: { swim: 2.6, bike: 92, run: 24 }},
+            
+            // Week 27 - Taper 2 (Jun 29 - Jul 5)
+            { week: 27, phase: "Taper", taper: true, days: [
+                { date: "Jun 29", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "Light work" },
+                { date: "Jun 30", day: "Tue", type: "swim", main: "Race Touches", duration: 55, details: "2000m race pace" },
+                { date: "Jul 1", day: "Wed", type: "run", main: "Race Pace", duration: 50, details: "8km race pace" },
+                { date: "Jul 2", day: "Thu", type: "bike", main: "Race Intervals", duration: 75, details: "4x8min race power" },
+                { date: "Jul 3", day: "Fri", type: "strength", main: "Strength", duration: 30, details: "LEGS light" },
+                { date: "Jul 4", day: "Sat", type: "bike", main: "Bike", duration: 90, details: "Moderate long" },
+                { date: "Jul 5", day: "Sun", type: "run", main: "Run", duration: 65, details: "10km easy" }
+            ], totals: { swim: 2.0, bike: 70, run: 18 }},
+            
+            // Week 28 - RACE WEEK Vitoria (Jul 6-12)
+            { week: 28, phase: "RACE", raceWeek: true, days: [
+                { date: "Jul 6", day: "Mon", type: "strength", main: "Core Only", duration: 25, details: "Light core" },
+                { date: "Jul 7", day: "Tue", type: "swim", main: "Openers", duration: 40, details: "1200m easy" },
+                { date: "Jul 8", day: "Wed", type: "run", main: "Easy + Strides", duration: 30, details: "5km + strides" },
+                { date: "Jul 9", day: "Thu", type: "bike", main: "Easy Spin", duration: 45, details: "Easy + openers" },
+                { date: "Jul 10", day: "Fri", type: "rest", main: "Travel", duration: 0, details: "Travel to Vitoria" },
+                { date: "Jul 11", day: "Sat", type: "brick", main: "Shake Out", duration: 40, details: "Easy openers" },
+                { date: "Jul 12", day: "Sun", type: "race", main: "🏁 VITORIA-GASTEIZ", duration: 300, details: "Half Ironman - A RACE!" }
+            ], totals: { swim: 3.6, bike: 120, run: 26 }},
+            
+            // Week 29 - Recovery (Jul 13-19)
+            { week: 29, phase: "Recovery", recovery: true, days: [
+                { date: "Jul 13", day: "Mon", type: "rest", main: "REST", duration: 0, details: "Complete rest" },
+                { date: "Jul 14", day: "Tue", type: "swim", main: "Easy", duration: 30, details: "800m recovery" },
+                { date: "Jul 15", day: "Wed", type: "rest", main: "Walk", duration: 30, details: "Easy walk" },
+                { date: "Jul 16", day: "Thu", type: "bike", main: "Very Easy", duration: 40, details: "Recovery spin" },
+                { date: "Jul 17", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Rest" },
+                { date: "Jul 18", day: "Sat", type: "run", main: "Easy Jog", duration: 30, details: "4km easy" },
+                { date: "Jul 19", day: "Sun", type: "bike", main: "Easy", duration: 50, details: "Easy endurance" }
+            ], totals: { swim: 0.8, bike: 35, run: 4 }},
+            
+            // Week 30 - Recovery 2 (Jul 20-26)
+            { week: 30, phase: "Recovery", recovery: true, days: [
+                { date: "Jul 20", day: "Mon", type: "strength", main: "Strength Light", duration: 35, details: "Light work" },
+                { date: "Jul 21", day: "Tue", type: "swim", main: "Technique", duration: 50, details: "1800m technique" },
+                { date: "Jul 22", day: "Wed", type: "run", main: "Easy", duration: 45, details: "7km easy" },
+                { date: "Jul 23", day: "Thu", type: "bike", main: "Bike + Strength", duration: 95, details: "Moderate + PULL", double: true },
+                { date: "Jul 24", day: "Fri", type: "strength", main: "Strength", duration: 35, details: "LEGS" },
+                { date: "Jul 25", day: "Sat", type: "bike", main: "Bike", duration: 85, details: "Endurance" },
+                { date: "Jul 26", day: "Sun", type: "run", main: "Run", duration: 65, details: "10km easy" }
+            ], totals: { swim: 1.8, bike: 63, run: 17 }},
+            
+            // Week 31 - Build for Hradec (Jul 27 - Aug 2)
+            { week: 31, phase: "Build 3", build: true, days: [
+                { date: "Jul 27", day: "Mon", type: "strength", main: "Strength", duration: 40, details: "PUSH + CORE" },
+                { date: "Jul 28", day: "Tue", type: "swim", main: "Tempo", duration: 60, details: "2200m tempo" },
+                { date: "Jul 29", day: "Wed", type: "run", main: "Tempo", duration: 55, details: "9km tempo 20min" },
+                { date: "Jul 30", day: "Thu", type: "bike", main: "Sweet Spot", duration: 115, details: "3x10min SS + PULL", double: true },
+                { date: "Jul 31", day: "Fri", type: "strength", main: "Strength", duration: 35, details: "LEGS" },
+                { date: "Aug 1", day: "Sat", type: "bike", main: "Bike", duration: 100, details: "Long endurance" },
+                { date: "Aug 2", day: "Sun", type: "run", main: "Run", duration: 75, details: "12km long run" }
+            ], totals: { swim: 2.2, bike: 77, run: 21 }},
+            
+            // Week 32 - Taper 3 (Aug 3-9)
+            { week: 32, phase: "Taper", taper: true, days: [
+                { date: "Aug 3", day: "Mon", type: "strength", main: "Strength Light", duration: 30, details: "Light work" },
+                { date: "Aug 4", day: "Tue", type: "swim", main: "Openers", duration: 50, details: "1800m openers" },
+                { date: "Aug 5", day: "Wed", type: "run", main: "Easy + Strides", duration: 45, details: "7km + strides" },
+                { date: "Aug 6", day: "Thu", type: "bike", main: "Easy + Touches", duration: 65, details: "Easy + race power" },
+                { date: "Aug 7", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Active recovery" },
+                { date: "Aug 8", day: "Sat", type: "bike", main: "Easy", duration: 75, details: "Easy endurance" },
+                { date: "Aug 9", day: "Sun", type: "run", main: "Easy", duration: 55, details: "9km easy" }
+            ], totals: { swim: 1.8, bike: 60, run: 16 }},
+            
+            // Week 33 - RACE WEEK Hradec (Aug 10-16)
+            { week: 33, phase: "RACE", raceWeek: true, days: [
+                { date: "Aug 10", day: "Mon", type: "strength", main: "Core Only", duration: 25, details: "Light core" },
+                { date: "Aug 11", day: "Tue", type: "swim", main: "Openers", duration: 35, details: "1000m easy" },
+                { date: "Aug 12", day: "Wed", type: "run", main: "Easy + Strides", duration: 25, details: "4km + strides" },
+                { date: "Aug 13", day: "Thu", type: "bike", main: "Easy Spin", duration: 40, details: "Easy + openers" },
+                { date: "Aug 14", day: "Fri", type: "rest", main: "REST", duration: 0, details: "Complete rest" },
+                { date: "Aug 15", day: "Sat", type: "brick", main: "Shake Out", duration: 35, details: "Easy openers" },
+                { date: "Aug 16", day: "Sun", type: "race", main: "🏁 HRADEC KRÁLOVÉ", duration: 270, details: "FINAL RACE - Season Complete!" }
+            ], totals: { swim: 3.3, bike: 118, run: 25 }}
+        ]);
+
+        // ============ PROGRESS STORAGE ============
+        const STORAGE_KEY = 'triathlon_training_progress_2026';
+        
+        // Load progress from localStorage
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                return saved ? JSON.parse(saved) : {};
+            } catch (e) {
+                console.error('Error loading progress:', e);
+                return {};
+            }
+        }
+        
+        // Save progress to localStorage
+        function saveProgress() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(workoutProgress));
+            } catch (e) {
+                console.error('Error saving progress:', e);
+            }
+        }
+        
+        // Initialize workout progress from localStorage
+        let workoutProgress = loadProgress();
+
+        // Update progress bar
+        function updateProgressBar() {
+            let totalWorkouts = 0;
+            let completedWorkouts = 0;
+            
+            trainingData.forEach(week => {
+                week.days.forEach(day => {
+                    if (day.type !== 'rest') {
+                        totalWorkouts++;
+                        if (workoutProgress[day.id]?.status === 'done') {
+                            completedWorkouts++;
+                        }
+                    }
+                });
+            });
+            
+            const percentage = totalWorkouts > 0 ? (completedWorkouts / totalWorkouts) * 100 : 0;
+            document.getElementById('progressFill').style.width = percentage.toFixed(1) + '%';
+            document.getElementById('progressStats').textContent = `${completedWorkouts} / ${totalWorkouts} workouts (${percentage.toFixed(1)}%)`;
+        }
+
+        function renderCalendar() {
+            const container = document.getElementById('calendar');
+            const months = {};
+            
+            // Group weeks by month
+            trainingData.forEach(week => {
+                const firstDay = week.days[0];
+                const monthName = firstDay.date.split(' ')[0];
+                if (!months[monthName]) {
+                    months[monthName] = [];
+                }
+                months[monthName].push(week);
+            });
+
+            // Render each month
+            Object.entries(months).forEach(([month, weeks]) => {
+                const monthCard = document.createElement('div');
+                monthCard.className = 'month-card';
+                
+                const totalSwim = weeks.reduce((sum, w) => sum + w.totals.swim, 0).toFixed(1);
+                const totalBike = weeks.reduce((sum, w) => sum + w.totals.bike, 0);
+                const totalRun = weeks.reduce((sum, w) => sum + w.totals.run, 0);
+                
+                monthCard.innerHTML = `
+                    <div class="month-header">
+                        <span class="month-name">${month} 2026</span>
+                        <span class="month-stats">🏊 ${totalSwim}km | 🚴 ${totalBike}km | 🏃 ${totalRun}km</span>
+                    </div>
+                `;
+                
+                weeks.forEach(week => {
+                    const weekRow = document.createElement('div');
+                    let weekClass = 'week-row';
+                    if (week.recovery) weekClass += ' recovery';
+                    if (week.raceWeek) weekClass += ' race-week';
+                    if (week.taper) weekClass += ' taper';
+                    if (week.progression) weekClass += ' progression';
+                    if (week.build) weekClass += ' build';
+                    weekRow.className = weekClass;
+                    
+                    // Calculate week completion
+                    let weekDone = 0;
+                    week.days.forEach(day => {
+                        if (workoutProgress[day.id]?.status === 'done') weekDone++;
+                    });
+                    const weekProgressText = weekDone > 0 ? `${weekDone}/${week.days.length}` : '';
+
+                    weekRow.innerHTML = `
+                        <div class="week-header">
+                            <span class="week-number">Week ${week.week}</span>
+                            <span class="week-progress">${weekProgressText}</span>
+                            <span class="week-phase">${week.phase}</span>
+                        </div>
+                        <div class="week-days">
+                            ${week.days.map(day => {
+                                const status = workoutProgress[day.id]?.status || '';
+                                return `
+                                <div class="day-cell ${day.type}${day.double ? ' double' : ''} ${status}" 
+                                     data-id="${day.id}"
+                                     data-date="${day.date}"
+                                     data-day="${day.day}"
+                                     data-main="${day.main}"
+                                     data-duration="${day.duration}"
+                                     data-details="${day.details}"
+                                     onclick="openModal('${day.id}')">
+                                    <span class="day-date">${day.date.split(' ')[1]}</span>
+                                    <span class="day-type">${day.type.substring(0,3)}</span>
+                                </div>
+                            `}).join('')}
+                        </div>
+                        <div class="week-totals">
+                            <div class="total-item"><div class="total-icon swim"></div>${week.totals.swim}km</div>
+                            <div class="total-item"><div class="total-icon bike"></div>${week.totals.bike}km</div>
+                            <div class="total-item"><div class="total-icon run"></div>${week.totals.run}km</div>
+                        </div>
+                    `;
+                    
+                    monthCard.appendChild(weekRow);
+                });
+                
+                container.appendChild(monthCard);
+            });
+        }
+
+        // Tooltip functionality
+        const tooltip = document.getElementById('tooltip');
+        
+        document.addEventListener('mouseover', (e) => {
+            const cell = e.target.closest('.day-cell');
+            if (cell) {
+                const id = cell.dataset.id;
+                const date = cell.dataset.date;
+                const day = cell.dataset.day;
+                const main = cell.dataset.main;
+                const duration = cell.dataset.duration;
+                const details = cell.dataset.details;
+                const progress = workoutProgress[id];
+                
+                let statusHtml = '';
+                if (progress?.status === 'done') {
+                    statusHtml = `<div class="tooltip-status done">✓ Completed${progress.notes ? ' • ' + progress.notes : ''}</div>`;
+                } else if (progress?.status === 'skipped') {
+                    statusHtml = `<div class="tooltip-status skipped">✗ Skipped${progress.notes ? ' • ' + progress.notes : ''}</div>`;
+                }
+                
+                tooltip.innerHTML = `
+                    <div class="tooltip-date">${day}, ${date} 2026</div>
+                    <div class="tooltip-session">${main}</div>
+                    <div class="tooltip-details">${duration > 0 ? duration + ' min • ' : ''}${details}</div>
+                    ${statusHtml}
+                `;
+                tooltip.classList.add('visible');
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (tooltip.classList.contains('visible')) {
+                // Use clientX/Y for viewport-relative positioning
+                let x = e.clientX + 15;
+                let y = e.clientY - 10;
+                
+                // Keep tooltip within viewport
+                if (x + 270 > window.innerWidth) {
+                    x = e.clientX - 275;
+                }
+                if (y + 130 > window.innerHeight) {
+                    y = e.clientY - 140;
+                }
+                if (y < 10) y = 10;
+                
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('.day-cell')) {
+                tooltip.classList.remove('visible');
+            }
+        });
+
+        // ============ SHARE CODE FUNCTIONS ============
+        
+        // LZString compression library (minified) for compact share codes
+        var LZString=function(){function o(o,r){if(!t[o]){t[o]={};for(var n=0;n<o.length;n++)t[o][o.charAt(n)]=n}return t[o][r]}var r=String.fromCharCode,n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$",t={},i={compressToBase64:function(o){if(null==o)return"";var r=i._compress(o,6,function(o){return n.charAt(o)});switch(r.length%4){default:case 0:return r;case 1:return r+"===";case 2:return r+"==";case 3:return r+"="}},decompressFromBase64:function(r){return null==r?"":""==r?null:i._decompress(r.length,32,function(e){return o(n,r.charAt(e))})},compressToUTF16:function(o){return null==o?"":i._compress(o,15,function(o){return r(o+32)})+" "},decompressFromUTF16:function(o){return null==o?"":""==o?null:i._decompress(o.length,16384,function(r){return o.charCodeAt(r)-32})},compressToUint8Array:function(o){for(var r=i.compress(o),n=new Uint8Array(2*r.length),e=0,t=r.length;t>e;e++){var s=r.charCodeAt(e);n[2*e]=s>>>8,n[2*e+1]=s%256}return n},decompressFromUint8Array:function(o){if(null===o||void 0===o)return i.decompress(o);for(var n=new Array(o.length/2),e=0,t=n.length;t>e;e++)n[e]=256*o[2*e]+o[2*e+1];var s=[];return n.forEach(function(o){s.push(r(o))}),i.decompress(s.join(""))},compressToEncodedURIComponent:function(o){return null==o?"":i._compress(o,6,function(o){return e.charAt(o)})},decompressFromEncodedURIComponent:function(r){return null==r?"":""==r?null:(r=r.replace(/ /g,"+"),i._decompress(r.length,32,function(n){return o(e,r.charAt(n))}))},compress:function(o){return i._compress(o,16,function(o){return r(o)})},_compress:function(o,r,n){if(null==o)return"";var e,t,i,s={},p={},u="",c="",a="",l=2,f=3,h=2,d=[],m=0,v=0;for(i=0;i<o.length;i+=1)if(u=o.charAt(i),Object.prototype.hasOwnProperty.call(s,u)||(s[u]=f++,p[u]=!0),c=a+u,Object.prototype.hasOwnProperty.call(s,c))a=c;else{if(Object.prototype.hasOwnProperty.call(p,a)){if(a.charCodeAt(0)<256){for(e=0;h>e;e++)m<<=1,v==r-1?(v=0,d.push(n(m)),m=0):v++;for(t=a.charCodeAt(0),e=0;8>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;h>e;e++)m=m<<1|t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=a.charCodeAt(0),e=0;16>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}l--,0==l&&(l=Math.pow(2,h),h++),delete p[a]}else for(t=s[a],e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;l--,0==l&&(l=Math.pow(2,h),h++),s[c]=f++,a=String(u)}if(""!==a){if(Object.prototype.hasOwnProperty.call(p,a)){if(a.charCodeAt(0)<256){for(e=0;h>e;e++)m<<=1,v==r-1?(v=0,d.push(n(m)),m=0):v++;for(t=a.charCodeAt(0),e=0;8>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;h>e;e++)m=m<<1|t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=a.charCodeAt(0),e=0;16>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}l--,0==l&&(l=Math.pow(2,h),h++),delete p[a]}else for(t=s[a],e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;l--,0==l&&(l=Math.pow(2,h),h++)}for(t=2,e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;for(;;){if(m<<=1,v==r-1){d.push(n(m));break}v++}return d.join("")},decompress:function(o){return null==o?"":""==o?null:i._decompress(o.length,32768,function(r){return o.charCodeAt(r)})},_decompress:function(o,n,e){var t,i,s,p,u,c,a,l,f=[],h=4,d=4,m=3,v="",w=[],A={val:e(0),position:n,index:1};for(i=0;3>i;i+=1)f[i]=i;for(p=0,c=Math.pow(2,2),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;switch(t=p){case 0:for(p=0,c=Math.pow(2,8),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;l=r(p);break;case 1:for(p=0,c=Math.pow(2,16),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;l=r(p);break;case 2:return""}for(f[3]=l,s=l,w.push(l);;){if(A.index>o)return"";for(p=0,c=Math.pow(2,m),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;switch(l=p){case 0:for(p=0,c=Math.pow(2,8),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;f[d++]=r(p),l=d-1,h--;break;case 1:for(p=0,c=Math.pow(2,16),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;f[d++]=r(p),l=d-1,h--;break;case 2:return w.join("")}if(0==h&&(h=Math.pow(2,m),m++),f[l])v=f[l];else{if(l!==d)return null;v=s+s.charAt(0)}w.push(v),f[d++]=s+v.charAt(0),h--,s=v,0==h&&(h=Math.pow(2,m),m++)}}};return i}();"function"==typeof define&&define.amd?define(function(){return LZString}):"undefined"!=typeof module&&null!=module&&(module.exports=LZString);
+
+        function generateShareCode() {
+            const statusEl = document.getElementById('generateStatus');
+            const displayEl = document.getElementById('shareCodeDisplay');
+            
+            try {
+                // Create compact data object
+                const data = {
+                    v: 1, // version
+                    t: Date.now(), // timestamp
+                    p: workoutProgress
+                };
+                
+                // Compress and encode
+                const json = JSON.stringify(data);
+                const compressed = LZString.compressToEncodedURIComponent(json);
+                
+                displayEl.textContent = compressed;
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(compressed).then(() => {
+                    statusEl.innerHTML = '<div class="sync-success">✓ Copied to clipboard!</div>';
+                }).catch(() => {
+                    statusEl.innerHTML = '<div class="sync-success">✓ Code generated! Select and copy manually.</div>';
+                });
+                
+                // Select the text for easy copying
+                const range = document.createRange();
+                range.selectNodeContents(displayEl);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                
+            } catch (error) {
+                statusEl.innerHTML = '<div class="sync-error">Error generating code</div>';
+                console.error(error);
+            }
+        }
+
+        function importShareCode() {
+            const statusEl = document.getElementById('importStatus');
+            const inputEl = document.getElementById('importCodeInput');
+            const code = inputEl.value.trim();
+            
+            if (!code) {
+                statusEl.innerHTML = '<div class="sync-error">Please paste a share code first</div>';
+                return;
+            }
+            
+            try {
+                // Decompress and parse
+                const json = LZString.decompressFromEncodedURIComponent(code);
+                if (!json) {
+                    throw new Error('Invalid code');
+                }
+                
+                const data = JSON.parse(json);
+                
+                if (!data.p || typeof data.p !== 'object') {
+                    throw new Error('Invalid data format');
+                }
+                
+                // Count what we're importing
+                const importCount = Object.keys(data.p).length;
+                const existingCount = Object.keys(workoutProgress).length;
+                
+                // Merge or replace?
+                if (existingCount > 0) {
+                    if (!confirm(`You have ${existingCount} tracked workouts. Import will add/update ${importCount} workouts. Continue?`)) {
+                        return;
+                    }
+                }
+                
+                // Merge the progress
+                workoutProgress = { ...workoutProgress, ...data.p };
+                saveProgress();
+                renderCalendar();
+                updateProgressBar();
+                
+                const codeDate = new Date(data.t);
+                statusEl.innerHTML = `<div class="sync-success">✓ Imported ${importCount} workouts! (from ${codeDate.toLocaleDateString()})</div>`;
+                inputEl.value = '';
+                
+            } catch (error) {
+                statusEl.innerHTML = '<div class="sync-error">Invalid share code. Please check and try again.</div>';
+                console.error(error);
+            }
+        }
+
+        function exportProgress() {
+            const data = {
+                exportDate: new Date().toISOString(),
+                progress: workoutProgress
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'training_progress_2026.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function resetAllProgress() {
+            if (confirm('Are you sure you want to reset ALL progress? This cannot be undone.')) {
+                workoutProgress = {};
+                saveProgress();
+                renderCalendar();
+                updateProgressBar();
+            }
+        }
+
+        // ============ MODAL FUNCTIONS ============
+        let currentWorkoutId = null;
+
+        function findWorkout(id) {
+            for (const week of trainingData) {
+                for (const day of week.days) {
+                    if (day.id === id) return day;
+                }
+            }
+            return null;
+        }
+
+        function openModal(id) {
+            currentWorkoutId = id;
+            const workout = findWorkout(id);
+            if (!workout) return;
+
+            document.getElementById('modalTitle').textContent = workout.main;
+            document.getElementById('modalDate').textContent = `${workout.day}, ${workout.date} 2026`;
+            document.getElementById('modalType').textContent = workout.type.charAt(0).toUpperCase() + workout.type.slice(1);
+            document.getElementById('modalDuration').textContent = workout.duration > 0 ? `${workout.duration} min` : 'Rest day';
+            document.getElementById('modalDetails').textContent = workout.details;
+            document.getElementById('modalNotesInput').value = workoutProgress[id]?.notes || '';
+
+            document.getElementById('modalOverlay').classList.add('visible');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('visible');
+            currentWorkoutId = null;
+        }
+
+        function markDone() {
+            if (!currentWorkoutId) return;
+            const notes = document.getElementById('modalNotesInput').value;
+            workoutProgress[currentWorkoutId] = { status: 'done', notes, updated: Date.now() };
+            saveProgress();
+            renderCalendar();
+            updateProgressBar();
+            closeModal();
+        }
+
+        function markSkipped() {
+            if (!currentWorkoutId) return;
+            const notes = document.getElementById('modalNotesInput').value;
+            workoutProgress[currentWorkoutId] = { status: 'skipped', notes, updated: Date.now() };
+            saveProgress();
+            renderCalendar();
+            updateProgressBar();
+            closeModal();
+        }
+
+        function markReset() {
+            if (!currentWorkoutId) return;
+            delete workoutProgress[currentWorkoutId];
+            saveProgress();
+            renderCalendar();
+            updateProgressBar();
+            closeModal();
+        }
+
+        // Close modal on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'modalOverlay') {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ============ BACKUP FUNCTIONS ============
+        function downloadBackup() {
+            const data = {
+                version: 1,
+                exportDate: new Date().toISOString(),
+                totalWorkouts: Object.keys(workoutProgress).length,
+                progress: workoutProgress
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const date = new Date().toISOString().split('T')[0];
+            a.download = `training_backup_${date}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            document.getElementById('backupStatus').innerHTML = 
+                '<div class="sync-success">✓ Backup downloaded!</div>';
+        }
+
+        function triggerFileInput() {
+            document.getElementById('backupFileInput').click();
+        }
+
+        function loadBackupFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (!data.progress || typeof data.progress !== 'object') {
+                        throw new Error('Invalid backup file format');
+                    }
+                    
+                    const importCount = Object.keys(data.progress).length;
+                    const existingCount = Object.keys(workoutProgress).length;
+                    
+                    let message = `Import ${importCount} workouts from backup?`;
+                    if (existingCount > 0) {
+                        message = `You have ${existingCount} tracked workouts. Import ${importCount} from backup? (will merge)`;
+                    }
+                    
+                    if (confirm(message)) {
+                        workoutProgress = { ...workoutProgress, ...data.progress };
+                        saveProgress();
+                        renderCalendar();
+                        updateProgressBar();
+                        
+                        const backupDate = new Date(data.exportDate).toLocaleDateString();
+                        document.getElementById('backupStatus').innerHTML = 
+                            `<div class="sync-success">✓ Imported ${importCount} workouts from ${backupDate}!</div>`;
+                    }
+                } catch (error) {
+                    document.getElementById('backupStatus').innerHTML = 
+                        '<div class="sync-error">Error reading backup file</div>';
+                    console.error(error);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; // Reset file input
+        }
+
+        // Initialize
+        renderCalendar();
+        updateProgressBar();
+    </script>
+</body>
+</html>
+
