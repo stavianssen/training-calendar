@@ -756,6 +756,68 @@
             border-color: var(--accent-swim);
         }
 
+        /* Workout Details Expansion */
+        .workout-details-section {
+            margin-top: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .workout-details-toggle {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .workout-details-toggle:hover {
+            background: var(--bg-hover);
+        }
+
+        .workout-details-toggle .toggle-icon {
+            transition: transform 0.2s;
+        }
+
+        .workout-details-toggle.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .workout-details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .workout-details-content.expanded {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .workout-details-text {
+            padding: 1rem;
+            background: var(--bg-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            color: var(--text-secondary);
+        }
+
+        .workout-details-text strong,
+        .workout-details-text b {
+            color: var(--text-primary);
+        }
+
         .modal-actions {
             display: flex;
             gap: 0.75rem;
@@ -1043,6 +1105,18 @@
                     <span class="modal-label">Details:</span>
                     <span class="modal-value" id="modalDetails">-</span>
                 </div>
+                
+                <!-- Expandable Workout Details -->
+                <div class="workout-details-section" id="workoutDetailsSection" style="display: none;">
+                    <button class="workout-details-toggle" onclick="toggleWorkoutDetails()">
+                        <span>📋 Full Workout Details</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="workout-details-content" id="workoutDetailsContent">
+                        <div class="workout-details-text" id="workoutDetailsText"></div>
+                    </div>
+                </div>
+                
                 <div class="modal-notes">
                     <label for="stravaLinkInput">🔗 Strava Activity Link</label>
                     <input type="url" id="stravaLinkInput" placeholder="https://www.strava.com/activities/..." style="width: 100%; padding: 0.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: inherit; font-size: 0.85rem; margin-bottom: 0.75rem;">
@@ -1061,6 +1135,2220 @@
     </div>
 
     <script>
+        // ============ WORKOUT LIBRARY ============
+        // Detailed workout breakdowns for your Half Ironman training plan
+        const workoutLibrary = {
+            // ==================== SWIM WORKOUTS ====================
+            swim: {
+                // TECHNIQUE FOCUS (1500m-2100m)
+                "1500m easy technique focus": `
+🏊 SWIM - Technique Focus (1500m)
+
+WARM-UP (300m):
+• 200m easy freestyle - focus on long strokes
+• 4x25m kick with board
+
+DRILLS (400m):
+• 4x50m catch-up drill
+• 4x50m fingertip drag
+
+MAIN SET (600m):
+• 6x100m freestyle @ easy pace
+  Focus: High elbow catch, bilateral breathing
+
+COOL-DOWN (200m):
+• 200m easy choice stroke
+
+💡 Focus: Smooth technique, don't rush. Count strokes per length.`,
+
+                "1800m Drill and Build": `
+🏊 SWIM - Drill & Build (1800m)
+
+WARM-UP (400m):
+• 200m easy freestyle
+• 100m kick
+• 100m pull
+
+DRILLS (400m):
+• 4x50m catch-up drill (15s rest)
+• 4x50m single arm drill (15s rest)
+
+BUILD SET (600m):
+• 4x150m build each 50m (easy→moderate→fast)
+  Rest: 20s between sets
+
+MAIN SET (400m):
+• 8x50m @ strong pace (15s rest)
+
+COOL-DOWN:
+• 200m easy
+
+💡 Focus: Feel the water, build speed gradually.`,
+
+                "1900m technique": `
+🏊 SWIM - Technique (1900m)
+
+WARM-UP (400m):
+• 200m easy free
+• 100m kick
+• 100m pull with paddles
+
+DRILLS (500m):
+• 4x50m fingertip drag
+• 4x50m catch-up
+• 100m fist drill
+
+MAIN SET (800m):
+• 4x200m @ steady pace
+  Focus: 14-16 strokes per 25m
+  Rest: 30s
+
+COOL-DOWN (200m):
+• 200m easy backstroke/free
+
+💡 Focus: Efficiency over speed. Long, smooth strokes.`,
+
+                "2000m drill + endurance": `
+🏊 SWIM - Drill + Endurance (2000m)
+
+WARM-UP (400m):
+• 300m easy free
+• 100m kick
+
+DRILLS (400m):
+• 8x50m alternating:
+  - Catch-up
+  - Fingertip drag
+  (10s rest)
+
+MAIN SET (1000m):
+• 2x500m continuous @ steady aerobic pace
+  Rest: 30s between
+
+COOL-DOWN (200m):
+• 200m easy choice
+
+💡 Focus: Maintain form through endurance set. Sight every 8 strokes.`,
+
+                "2100m technique": `
+🏊 SWIM - Technique (2100m)
+
+WARM-UP (400m):
+• 200m free, 100m back, 100m breast
+
+DRILLS (500m):
+• 4x50m catch-up
+• 4x50m single arm (alt.)
+• 100m fist drill
+
+TECHNIQUE SET (600m):
+• 6x100m focusing on:
+  1-2: Catch phase
+  3-4: Pull through
+  5-6: Rotation
+  (20s rest)
+
+MAIN SET (400m):
+• 8x50m descending 1-4, 5-8
+  (15s rest)
+
+COOL-DOWN (200m):
+• 200m easy choice
+
+💡 Focus: One technique element at a time.`,
+
+                "2200m drill + endurance": `
+🏊 SWIM - Drill + Endurance (2200m)
+
+WARM-UP (400m):
+• 300m easy mix
+• 100m kick with fins
+
+DRILLS (400m):
+• 4x100m as 50 drill / 50 swim
+  Drills: catch-up, fingertip, fist, single arm
+
+MAIN SET (1200m):
+• 3x400m @ steady aerobic
+  Rest: 30s
+  Focus: Negative split each 400
+
+COOL-DOWN (200m):
+• 200m easy backstroke
+
+💡 Focus: Build through each 400m. Stay relaxed.`,
+
+                // THRESHOLD/RACE PACE (2400m-3000m)
+                "2400m - 400m TT + 200m TT": `
+🏊 CSS TEST - Critical Swim Speed (2400m)
+
+⚠️ IMPORTANT TEST - determines your training zones!
+
+WARM-UP (600m):
+• 400m easy
+• 4x50m build (20s rest)
+
+TEST SET:
+• 400m TIME TRIAL - ALL OUT
+  Record your time!
+  Rest: 5 minutes (easy swim/float)
+
+• 200m TIME TRIAL - ALL OUT
+  Record your time!
+
+COOL-DOWN (400m+):
+• 400m+ very easy
+
+📊 Calculate CSS:
+CSS pace = (400m time - 200m time) ÷ 2
+This is your threshold pace per 100m
+
+💡 Pace yourself on 400m - don't die in last 100m!`,
+
+                "2500m threshold pyramid": `
+🏊 SWIM - Threshold Pyramid (2500m)
+
+WARM-UP (500m):
+• 300m easy
+• 4x50m build
+
+THRESHOLD PYRAMID (1600m):
+• 100m @ CSS pace (15s rest)
+• 200m @ CSS pace (20s rest)
+• 300m @ CSS pace (25s rest)
+• 400m @ CSS pace (30s rest)
+• 300m @ CSS pace (25s rest)
+• 200m @ CSS pace (20s rest)
+• 100m @ CSS pace (15s rest)
+
+COOL-DOWN (400m):
+• 400m easy pull
+
+💡 CSS = Critical Swim Speed (your threshold pace)
+Hold consistent pace throughout pyramid.`,
+
+                "2600m race pace": `
+🏊 SWIM - Race Pace (2600m)
+
+WARM-UP (500m):
+• 300m easy
+• 4x50m build
+
+RACE PACE SET (1700m):
+• 4x100m @ race pace (15s rest)
+• 400m steady @ just below race pace
+• 4x100m @ race pace (15s rest)
+• 500m continuous @ race effort
+
+COOL-DOWN (400m):
+• 400m easy
+
+💡 Race pace = CSS +2-3 sec/100m
+Practice sighting every 6-8 strokes during 500m.`,
+
+                "2700m threshold": `
+🏊 SWIM - Threshold (2700m)
+
+WARM-UP (500m):
+• 300m easy
+• 200m pull
+
+THRESHOLD SET (1800m):
+• 6x300m @ CSS pace
+  Rest: 20s between
+  Focus: Even splits!
+
+COOL-DOWN (400m):
+• 200m easy
+• 200m backstroke
+
+💡 CSS = your threshold pace from test.
+Should feel "comfortably hard" - sustainable but challenging.`,
+
+                "2700m - 1900m straight": `
+🏊 RACE SIMULATION (2700m)
+
+WARM-UP (500m):
+• 300m easy
+• 4x50m race pace
+
+RACE SIMULATION (1900m):
+• 1900m CONTINUOUS @ race effort
+  Sight every 6-8 strokes
+  Practice bilateral breathing
+  No stopping!
+
+COOL-DOWN (300m):
+• 300m very easy
+
+💡 This simulates your Half Ironman swim!
+Practice nutrition timing - eat 2h before.`,
+
+                "2800m race pace": `
+🏊 SWIM - Race Pace (2800m)
+
+WARM-UP (500m):
+• 300m easy
+• 4x50m build
+
+MAIN SET (1900m):
+• 400m @ race pace
+• 4x50m fast (10s rest)
+• 600m @ race pace
+• 4x50m fast (10s rest)
+• 500m @ race pace (finish strong!)
+
+COOL-DOWN (400m):
+• 400m easy
+
+💡 Practice race-day effort distribution.`,
+
+                "2900m threshold": `
+🏊 SWIM - Threshold (2900m)
+
+WARM-UP (500m):
+• 300m easy mix
+• 4x50m build
+
+THRESHOLD SET (2000m):
+• 5x400m @ CSS pace
+  Rest: 25s between
+  Negative split last 400!
+
+COOL-DOWN (400m):
+• 400m easy choice
+
+💡 Longest threshold set - mental toughness!`,
+
+                "2900m race effort": `
+🏊 RACE SIMULATION (2900m)
+
+WARM-UP (500m):
+• 300m easy
+• 4x50m @ race pace
+
+RACE EFFORT SET (2000m):
+• 500m @ race pace - settle in
+• 4x100m @ strong (15s rest)
+• 500m @ race pace - hold form
+• 4x100m @ strong (15s rest)
+• 400m @ race pace - finish strong!
+
+COOL-DOWN (400m):
+• 400m very easy
+
+💡 Practice pacing for 1.9km race swim.`,
+
+                "3000m race simulation": `
+🏊 FULL RACE SIMULATION (3000m)
+
+WARM-UP (600m):
+• 400m easy
+• 4x50m build to race pace
+
+RACE SIMULATION (1900m):
+• 1900m CONTINUOUS
+  First 300m: Controlled (don't go out too fast!)
+  Middle 1200m: Settle into rhythm
+  Last 400m: Strong finish
+  Sight every 6-8 strokes
+
+EXTRA WORK (500m):
+• 5x100m @ threshold (15s rest)
+
+COOL-DOWN:
+• 300m very easy
+
+💡 Full dress rehearsal for race day swim!`,
+
+                "3100m open water sim": `
+🏊 OPEN WATER SIMULATION (3100m)
+
+WARM-UP (500m):
+• 300m easy
+• 200m pull
+
+OPEN WATER SIMULATION (2200m):
+• 4x550m continuous
+  Every 100m: 3 strokes head-up (sighting)
+  Rest: 30s between sets
+  Practice drafting position awareness
+
+SPEED WORK (400m):
+• 8x50m @ fast (15s rest)
+
+COOL-DOWN:
+• 400m easy
+
+💡 Practice head-up sighting without losing momentum.`,
+
+                "3300m peak volume": `
+🏊 PEAK SWIM VOLUME (3300m)
+
+WARM-UP (500m):
+• 300m easy
+• 200m kick/pull
+
+MAIN SET (2400m):
+• 800m @ steady aerobic
+• 4x200m @ CSS pace (20s rest)
+• 800m @ steady aerobic
+
+SPEED (400m):
+• 8x50m descend 1-4, 5-8 (10s rest)
+
+COOL-DOWN:
+• 400m easy
+
+💡 Biggest swim of the plan - stay patient!`,
+
+                // RECOVERY/EASY SWIMS
+                "1500m easy technique": `
+🏊 RECOVERY SWIM (1500m)
+
+WARM-UP (300m):
+• 300m very easy mix
+
+TECHNIQUE (800m):
+• 4x100m drill/swim by 50
+• 4x100m pull with paddles - smooth!
+
+EASY SET (400m):
+• 4x100m @ very easy pace
+  Focus: Perfect form, minimal effort
+
+COOL-DOWN:
+• 200m super easy
+
+💡 RECOVERY WEEK - keep it easy! RPE 3-4`,
+
+                "1600m easy": `
+🏊 RECOVERY SWIM (1600m)
+
+All at EASY effort today!
+
+WARM-UP (400m):
+• 400m easy mix
+
+MAIN SET (800m):
+• 400m pull - smooth and easy
+• 400m swim - focus on rotation
+
+TECHNIQUE (400m):
+• 8x50m alternating drill/swim
+
+COOL-DOWN:
+• 200m choice - very easy
+
+💡 RECOVERY WEEK - no intensity!`,
+
+                "1800m easy": `
+🏊 EASY TECHNIQUE (1800m)
+
+WARM-UP (400m):
+• 400m easy mix
+
+DRILLS (400m):
+• 8x50m various drills
+  - Catch-up, fingertip, single arm
+
+MAIN SET (800m):
+• 8x100m @ easy aerobic
+  Focus: Smooth strokes, good rotation
+
+COOL-DOWN (200m):
+• 200m backstroke easy
+
+💡 Easy effort today - focus on feeling the water.`,
+
+                "2000m easy technique": `
+🏊 EASY TECHNIQUE (2000m)
+
+WARM-UP (400m):
+• 300m easy
+• 100m kick
+
+DRILL SET (600m):
+• 6x100m as 50 drill / 50 swim
+
+MAIN SET (800m):
+• 4x200m @ easy aerobic
+  Rest: 20s
+  Count strokes - stay efficient
+
+COOL-DOWN (200m):
+• 200m easy choice
+
+💡 Quality technique, low intensity.`,
+
+                // TAPER/RACE WEEK
+                "2200m race pace": `
+🏊 RACE TUNE-UP (2200m)
+
+WARM-UP (400m):
+• 300m easy
+• 4x25m fast
+
+RACE PACE SET (1400m):
+• 4x100m @ race pace (20s rest)
+• 600m @ steady (race pace -5sec)
+• 4x100m @ race pace (20s rest)
+
+COOL-DOWN (400m):
+• 400m very easy
+
+💡 TAPER WEEK - sharp but not tired!`,
+
+                "1600m with openers": `
+🏊 RACE OPENERS (1600m)
+
+WARM-UP (400m):
+• 400m easy
+
+OPENERS (800m):
+• 4x50m build to race pace (20s rest)
+• 4x50m @ race pace (20s rest)
+• 4x50m easy (10s rest)
+• 4x50m @ race pace (15s rest)
+
+COOL-DOWN (400m):
+• 400m very easy
+
+💡 TAPER - wake up the muscles!`,
+
+                "1200m easy openers": `
+🏊 RACE WEEK OPENERS (1200m)
+
+WARM-UP (400m):
+• 400m easy - loosen up
+
+OPENERS (600m):
+• 4x50m build (20s rest)
+• 4x100m @ race pace (20s rest)
+
+COOL-DOWN (200m):
+• 200m very easy
+
+💡 RACE WEEK - stay fresh, stay sharp!`,
+
+                "800m recovery": `
+🏊 POST-RACE RECOVERY (800m)
+
+Very easy flush swim!
+
+• 200m easy free
+• 200m easy back
+• 200m easy pull
+• 200m easy choice
+
+💡 Flush out the legs, move blood. No intensity!`,
+
+                "1200m technique": `
+🏊 EASY TECHNIQUE (1200m)
+
+WARM-UP (300m):
+• 300m easy mix
+
+DRILLS (400m):
+• 8x50m various drills - nice and easy
+
+MAIN SET (400m):
+• 4x100m smooth freestyle
+
+COOL-DOWN (100m):
+• 100m very easy
+
+💡 Keep it light and technical.`
+            },
+
+            // ==================== STRENGTH WORKOUTS ====================
+            strength: {
+                "PUSH + CORE": `
+💪 STRENGTH - Push + Core (45min)
+
+WARM-UP (5min):
+• Arm circles, shoulder rolls
+• 10 push-ups easy
+• 30s plank
+
+PUSH CIRCUIT (30min) - 3 rounds:
+1. Push-ups: 15-20 reps
+2. Dumbbell Shoulder Press: 12 reps
+3. Dumbbell Chest Press: 12 reps
+4. Tricep Dips: 12-15 reps
+5. Pike Push-ups: 10 reps
+Rest: 60s between rounds
+
+CORE CIRCUIT (10min) - 2 rounds:
+1. Plank: 45-60s
+2. Dead Bug: 12 each side
+3. Russian Twists: 20 total
+4. Bird Dog: 10 each side
+5. Mountain Climbers: 30s
+
+💡 Focus: Controlled movement, full range of motion.`,
+
+                "PUSH + CORE light": `
+💪 STRENGTH LIGHT - Push + Core (35min)
+
+⚡ RECOVERY WEEK - lighter load!
+
+WARM-UP (5min):
+• Light mobility work
+
+PUSH CIRCUIT (20min) - 2 rounds:
+1. Push-ups: 10-12 reps
+2. Light Shoulder Press: 10 reps
+3. Light Chest Press: 10 reps
+4. Tricep Dips: 10 reps
+Rest: 90s between rounds
+
+CORE (10min) - 2 rounds:
+1. Plank: 30-45s
+2. Dead Bug: 8 each side
+3. Bird Dog: 8 each side
+
+💡 RECOVERY WEEK - 60% effort, focus on form.`,
+
+                "PULL": `
+💪 STRENGTH - Pull (45min)
+
+WARM-UP (5min):
+• Band pull-aparts
+• Arm circles
+• Cat-cow stretches
+
+PULL CIRCUIT (30min) - 3 rounds:
+1. Pull-ups or Lat Pulldown: 8-12 reps
+2. Bent Over Rows: 12 reps each arm
+3. Face Pulls: 15 reps
+4. Bicep Curls: 12 reps
+5. Reverse Flyes: 12 reps
+Rest: 60s between rounds
+
+BACK HEALTH (10min):
+1. Superman: 12 reps
+2. Prone Y-T-W: 8 each
+3. Band Pull-aparts: 15 reps
+4. Foam roll upper back
+
+💡 Counterbalance swim posture - squeeze shoulder blades!`,
+
+                "ROUVY + PULL": `
+🚴 BIKE + 💪 PULL SESSION
+
+BIKE - ROUVY (60-75min):
+• Choose endurance route
+• Stay in Zone 2 (conversational pace)
+• Cadence: 85-95 rpm
+
+Then immediately:
+
+PULL CIRCUIT (30min) - 3 rounds:
+1. Pull-ups or Lat Pulldown: 8-12 reps
+2. Bent Over Rows: 12 reps each arm
+3. Face Pulls: 15 reps
+4. Bicep Curls: 12 reps
+5. Reverse Flyes: 12 reps
+Rest: 60s between rounds
+
+💡 Do pull workout while still warm from bike!`,
+
+                "LEGS": `
+💪 STRENGTH - Legs (40min)
+
+WARM-UP (5min):
+• Leg swings
+• Bodyweight squats
+• Lunges
+
+LEG CIRCUIT (30min) - 3 rounds:
+1. Goblet Squats: 15 reps
+2. Romanian Deadlifts: 12 reps
+3. Walking Lunges: 12 each leg
+4. Step-ups: 10 each leg
+5. Calf Raises: 20 reps
+6. Single Leg Glute Bridge: 12 each
+Rest: 60s between rounds
+
+STABILITY (5min):
+1. Single leg stand: 30s each
+2. Pistol squat progression: 5 each
+
+💡 Triathlon-specific leg strength - single leg work is key!`,
+
+                "LEGS light": `
+💪 STRENGTH LIGHT - Legs (35min)
+
+⚡ RECOVERY WEEK - maintain, don't strain!
+
+WARM-UP (5min):
+• Light mobility
+
+LEG CIRCUIT (25min) - 2 rounds:
+1. Bodyweight Squats: 15 reps
+2. Light RDL: 10 reps
+3. Lunges: 8 each leg
+4. Step-ups: 8 each leg
+5. Calf Raises: 15 reps
+Rest: 90s between rounds
+
+MOBILITY (5min):
+• Hip flexor stretch
+• Pigeon pose
+• Quad stretch
+
+💡 RECOVERY - focus on mobility over load.`,
+
+                "Light work": `
+💪 LIGHT STRENGTH (35min)
+
+RECOVERY WEEK - full body light
+
+CIRCUIT (25min) - 2 rounds:
+1. Push-ups: 10 reps
+2. Bodyweight Squats: 12 reps
+3. Band Rows: 12 reps
+4. Lunges: 8 each leg
+5. Plank: 30s
+Rest: 90s
+
+MOBILITY (10min):
+• Full body stretching
+• Foam rolling
+
+💡 Move the body, don't stress it.`,
+
+                "Light maintenance": `
+💪 MAINTENANCE STRENGTH (30min)
+
+TAPER WEEK - stay sharp!
+
+CIRCUIT (20min) - 2 rounds:
+1. Push-ups: 8-10 reps
+2. Squats: 10 reps
+3. Band Pulls: 10 reps
+4. Lunges: 6 each leg
+5. Plank: 30s
+
+MOBILITY (10min):
+• Race-specific stretching
+• Foam roll tight spots
+
+💡 TAPER - maintain strength, stay fresh!`,
+
+                "Core Only": `
+💪 CORE SESSION (25min)
+
+RACE WEEK - core only!
+
+CORE CIRCUIT - 3 rounds:
+1. Plank: 45s
+2. Side Plank: 30s each
+3. Dead Bug: 10 each side
+4. Bird Dog: 10 each side
+5. Hollow Hold: 20s
+Rest: 30s between exercises
+
+STRETCH:
+• Hip flexors
+• Lower back
+• Hamstrings
+
+💡 RACE WEEK - activate core, stay loose!`,
+
+                "Light core": `
+💪 LIGHT CORE (25min)
+
+RACE WEEK - gentle activation
+
+CORE - 2 rounds:
+1. Plank: 30s
+2. Dead Bug: 8 each
+3. Bird Dog: 8 each
+4. Glute Bridge: 10 reps
+
+STRETCH & MOBILITY:
+• Full body gentle stretching
+• Focus on hip flexors and back
+
+💡 RACE WEEK - stay loose, stay ready!`,
+
+                "8km easy + full body intro": `
+🏃 RUN + 💪 INTRO STRENGTH
+
+RUN (50min):
+• 8km easy pace
+• Zone 2 - conversational
+• Focus on form
+
+Then:
+
+FULL BODY INTRO (40min) - 2 rounds:
+1. Push-ups: 10 reps
+2. Squats: 12 reps
+3. Band Rows: 12 reps
+4. Lunges: 8 each leg
+5. Plank: 30s
+6. Glute Bridges: 12 reps
+Rest: 60s between rounds
+
+💡 First strength session - learn the movements!`,
+
+                "Very light": `
+💪 VERY LIGHT STRENGTH (30min)
+
+RACE WEEK - just movement
+
+CIRCUIT - 1-2 rounds:
+1. Push-ups: 8 reps
+2. Squats: 10 reps
+3. Lunges: 6 each
+4. Plank: 20s
+5. Bird Dog: 6 each
+
+STRETCH:
+• Full body stretching
+
+💡 RACE WEEK - movement, not workout!`,
+
+                "Light Full Body": `
+💪 LIGHT FULL BODY (30min)
+
+POST-RACE WEEK - rebuild
+
+CIRCUIT - 2 rounds (easy):
+1. Push-ups: 10 reps
+2. Squats: 12 reps
+3. Band Rows: 10 reps
+4. Lunges: 6 each
+5. Plank: 30s
+
+MOBILITY:
+• Full body foam rolling
+• Stretching
+
+💡 Easy effort - body is recovering!`
+            },
+
+            // ==================== BIKE WORKOUTS ====================
+            bike: {
+                "Long endurance ROUVY": `
+🚴 BIKE - Long Endurance ROUVY (75min)
+
+WARM-UP (10min):
+• Easy spinning, gradually increase
+
+MAIN SET (55min):
+• Choose scenic ROUVY route
+• Zone 2 effort - conversational pace
+• Cadence: 85-95 rpm
+• Stay seated on climbs
+
+COOL-DOWN (10min):
+• Easy spinning
+
+💡 Foundation endurance - don't go too hard!
+Hydrate: 500ml+ fluid, consider 1 gel if >60min.`,
+
+                "Long endurance": `
+🚴 BIKE - Long Endurance (varies)
+
+WARM-UP (10min):
+• Easy spinning
+
+MAIN SET:
+• Zone 2 steady effort
+• Cadence: 85-95 rpm
+• Practice race position
+• Every 20min: 30s standing
+
+COOL-DOWN (10min):
+• Easy spinning
+
+💡 Build aerobic base. Keep HR in Zone 2.
+Nutrition: Hydrate every 15min, fuel every 45min.`,
+
+                "ROUVY + PULL": `
+🚴 ROUVY + 💪 PULL SESSION
+
+BIKE - ROUVY (60-70min):
+• Endurance route
+• Zone 2 steady
+• Cadence: 85-95 rpm
+
+Immediately after:
+
+PULL STRENGTH (30min):
+• See PULL workout details
+• 3 rounds of pull circuit
+
+💡 Brick training - do strength while warm!`,
+
+                "Long + hills": `
+🚴 BIKE - Long with Hills (90-120min)
+
+WARM-UP (15min):
+• Easy spinning
+
+MAIN SET:
+• Undulating ROUVY route OR outdoor hills
+• Zone 2 on flats
+• Zone 3-4 on climbs (stay seated)
+• Recover to Zone 2 on descents
+• Cadence: 70-80 on climbs, 90+ on flats
+
+COOL-DOWN (10min):
+• Easy spinning
+
+💡 Hill practice for race course!
+On climbs: steady effort, don't surge.`,
+
+                "Long with climbs": `
+🚴 BIKE - Long with Climbs (130min)
+
+WARM-UP (15min):
+• Easy to moderate
+
+MAIN SET (100min):
+• Find climbing route
+• Z2 effort on flats
+• Z3-4 effort on climbs
+• Practice staying seated
+• Focus on steady power
+
+COOL-DOWN (15min):
+• Easy spinning, stretch after
+
+💡 90km race prep! Practice nutrition strategy.`,
+
+                "3h+ long ride": `
+🚴 BIKE - Long Ride (3+ hours)
+
+WARM-UP (15min):
+• Easy spinning
+
+MAIN SET (150min+):
+• Zone 2 primary
+• Practice race position
+• Every 30min: 1 min standing
+• Practice nutrition timing:
+  - Drink every 15min
+  - Gel/bar every 45min
+
+COOL-DOWN (15min):
+• Very easy spinning
+
+💡 Race simulation! This is your 90km practice.
+Mental focus: break into 30min segments.`,
+
+                "Peak Long": `
+🚴 PEAK LONG RIDE (150min)
+
+BIGGEST RIDE OF THE PLAN!
+
+WARM-UP (15min):
+• Easy progressive
+
+MAIN SET (120min):
+• Zone 2 base
+• Every 20min: 5min @ race effort
+• Full nutrition protocol:
+  - 750ml+ fluid/hour
+  - 60g carbs/hour
+  - Test race day nutrition!
+
+COOL-DOWN (15min):
+• Easy spinning
+
+💡 PEAK VOLUME - after this, we taper!
+Practice EVERYTHING you'll do on race day.`,
+
+                "Longest ride + nutrition": `
+🚴 LONGEST RIDE + NUTRITION (150min)
+
+PEAK TRAINING RIDE!
+
+• Full race simulation effort
+• Practice race day nutrition:
+  - Same bottles
+  - Same gels
+  - Same timing
+• Zone 2-3 effort
+• Include some race pace efforts
+
+💡 This is your race dress rehearsal for bike!`,
+
+                "Easy ROUVY": `
+🚴 RECOVERY BIKE - Easy ROUVY (55min)
+
+⚡ RECOVERY WEEK!
+
+EASY EFFORT:
+• Choose flat, scenic route
+• Zone 1-2 only
+• High cadence: 90-100 rpm
+• Spin the legs out
+
+💡 RECOVERY - flush the legs, nothing more!`,
+
+                "Easy endurance": `
+🚴 EASY ENDURANCE (60min)
+
+WARM-UP (10min):
+• Very easy spinning
+
+MAIN SET (40min):
+• Zone 2 steady
+• Stay comfortable
+• Practice position
+
+COOL-DOWN (10min):
+• Very easy
+
+💡 Easy effort today - build consistency.`,
+
+                "Moderate endurance": `
+🚴 MODERATE ENDURANCE (95min)
+
+WARM-UP (15min):
+• Easy to moderate
+
+MAIN SET (70min):
+• Zone 2-3 effort
+• Some tempo sections
+• Practice pacing
+
+COOL-DOWN (10min):
+• Easy spinning
+
+💡 Rebuilding fitness - moderate effort.`,
+
+                // INTENSITY WORKOUTS
+                "3x12min @ SS + PULL": `
+🚴 SWEET SPOT + PULL (120min)
+
+BIKE - Sweet Spot (75min):
+
+WARM-UP (15min):
+• Easy progressive spinning
+
+MAIN SET (45min):
+• 3x12min @ Sweet Spot (88-94% FTP)
+  - Cadence: 85-95
+  - Seated position
+  - Rest: 5min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+Then: PULL STRENGTH (30min)
+
+💡 Sweet Spot = sustainable power just below threshold.`,
+
+                "4x10min SS + PULL": `
+🚴 SWEET SPOT + PULL (130min)
+
+BIKE - Sweet Spot (85min):
+
+WARM-UP (15min):
+• Progressive warm-up
+
+MAIN SET (55min):
+• 4x10min @ Sweet Spot (88-94% FTP)
+  - Cadence: 85-95
+  - Stay seated
+  - Rest: 4min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+Then: PULL STRENGTH (30min)
+
+💡 Building sustainable race power!`,
+
+                "6x5min @ 90% FTP + PULL": `
+🚴 HILL REPEATS + PULL (125min)
+
+BIKE - Hill Repeats (80min):
+
+WARM-UP (15min):
+• Progressive
+
+MAIN SET (50min):
+• 6x5min @ 90% FTP
+  - Simulate climbing
+  - Cadence: 70-80
+  - Stay seated
+  - Rest: 3min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+Then: PULL STRENGTH (30min)
+
+💡 Race simulation for hilly courses!`,
+
+                "2x20min @ FTP + PULL": `
+🚴 THRESHOLD BLOCKS + PULL (130min)
+
+BIKE - Threshold (85min):
+
+WARM-UP (15min):
+• Progressive, include 2x1min fast
+
+MAIN SET (50min):
+• 2x20min @ FTP (100%)
+  - Steady power
+  - Cadence: 85-95
+  - Rest: 5min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+Then: PULL STRENGTH (30min)
+
+💡 FTP work - race power sustainability!`,
+
+                "2x25min @ FTP + PULL": `
+🚴 THRESHOLD EXTENDED + PULL (135min)
+
+BIKE - Extended Threshold (90min):
+
+WARM-UP (15min):
+• Progressive warm-up
+
+MAIN SET (60min):
+• 2x25min @ FTP (100%)
+  - Rock solid power
+  - Race cadence: 85-95
+  - Rest: 5min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+Then: PULL STRENGTH (30min)
+
+💡 Extended threshold - mental & physical!`,
+
+                "4x8min race power": `
+🚴 RACE POWER INTERVALS (80min)
+
+TAPER SESSION - stay sharp!
+
+WARM-UP (15min):
+• Easy progressive
+
+MAIN SET (40min):
+• 4x8min @ Race Power
+  - Target race wattage
+  - Race cadence
+  - Rest: 4min easy between
+
+COOL-DOWN (15min):
+• Easy spinning
+
+💡 TAPER - maintain top-end, don't fatigue!`,
+
+                "Easy + race power": `
+🚴 TAPER TOUCHES (60min)
+
+TAPER WEEK - sharp not tired!
+
+WARM-UP (15min):
+• Easy spinning
+
+MAIN SET (30min):
+• 3x5min @ race power
+  - Feel the race watts
+  - Rest: 5min easy between
+
+COOL-DOWN (15min):
+• Very easy
+
+💡 TAPER - touch race intensity, don't train it!`,
+
+                "Easy Spin": `
+🚴 EASY SPIN (45min)
+
+RACE WEEK - active recovery!
+
+• All easy spinning
+• Zone 1 only
+• High cadence: 95+
+• Loosen the legs
+
+💡 RACE WEEK - spin out any tightness!`,
+
+                "Easy + openers": `
+🚴 RACE OPENERS (45-50min)
+
+RACE WEEK!
+
+WARM-UP (15min):
+• Easy spinning
+
+OPENERS (20min):
+• 4x30s @ race power
+  - Rest: 2min easy between
+• 2x1min @ threshold
+  - Rest: 3min easy between
+
+COOL-DOWN (10min):
+• Very easy
+
+💡 RACE WEEK - wake up the legs!`,
+
+                "Recovery spin": `
+🚴 RECOVERY SPIN (40min)
+
+POST-RACE RECOVERY
+
+• Very easy spinning
+• Zone 1 only
+• High cadence
+• Just flush the legs
+
+💡 POST-RACE - active recovery only!`,
+
+                "90km race power + PULL": `
+🚴 RACE SIMULATION + PULL (135min)
+
+BIKE - Race Simulation (90min):
+
+• 90km race effort simulation
+• Target race watts
+• Practice nutrition timing
+• Race position throughout
+
+Then: PULL STRENGTH (30min)
+
+💡 Full race dress rehearsal for bike leg!`,
+
+                "ROUVY + hills + PULL": `
+🚴 ROUVY HILLS + PULL (135min)
+
+BIKE - Hilly ROUVY (90min):
+• Choose hilly route
+• Z2 on flats
+• Z3-4 on climbs
+• Practice steady climbing power
+
+Then: PULL STRENGTH (30min)
+
+💡 Hill-specific training for race prep!`,
+
+                "Easy + PULL": `
+🚴 EASY BIKE + PULL (100min)
+
+REBUILDING WEEK
+
+BIKE (60min):
+• Easy zone 2 effort
+• Comfortable pace
+• Spin the legs
+
+Then: PULL STRENGTH (30min)
+
+💡 Rebuilding after racing - easy effort!`,
+
+                "Long + race pace": `
+🚴 LONG + RACE PACE (135min)
+
+WARM-UP (15min):
+• Progressive
+
+MAIN SET (105min):
+• Z2 base effort
+• Every 20min: 5min @ race watts
+• Practice race position
+• Full nutrition protocol
+
+COOL-DOWN (15min):
+• Easy
+
+💡 Long ride with race pace practice!`,
+
+                "Moderate long": `
+🚴 MODERATE LONG (100min)
+
+• Zone 2-3 effort
+• Steady sustainable pace
+• Practice race position
+• Nutrition practice
+
+💡 Building back after taper/race.`,
+
+                "Race simulation - flat fast": `
+🚴 RACE SIMULATION (120min)
+
+FLAT & FAST PRACTICE
+
+• Simulate flat race course
+• Target race watts
+• Aero position practice
+• Full race nutrition
+
+💡 Vitoria-Gasteiz prep - it's fast and flat!`
+            },
+
+            // ==================== RUN WORKOUTS ====================
+            run: {
+                "7km easy aerobic": `
+🏃 RUN - Easy Aerobic (50min)
+
+WARM-UP:
+• 5min very easy jog
+• Dynamic stretches
+
+MAIN RUN (40min):
+• 7km @ Zone 2
+• Conversational pace
+• Focus on form:
+  - High cadence (170-180)
+  - Midfoot strike
+  - Relaxed shoulders
+
+COOL-DOWN:
+• 5min easy walk
+• Stretching
+
+💡 Aerobic base building. If you can't talk, slow down!`,
+
+                "8km easy aerobic": `
+🏃 RUN - Easy Aerobic (55min)
+
+WARM-UP (5min):
+• Easy jog + dynamics
+
+MAIN RUN (45min):
+• 8km @ Zone 2
+• Easy, conversational pace
+• Cadence: 170-180 spm
+
+COOL-DOWN:
+• 5min walk + stretch
+
+💡 Foundation run - keep it truly easy!`,
+
+                "8km easy + strides": `
+🏃 RUN - Easy + Strides (55min)
+
+WARM-UP (5min):
+• Easy jog + dynamics
+
+MAIN RUN (40min):
+• 8km @ easy pace
+
+STRIDES (10min):
+• 6x20 seconds @ fast (not sprint)
+  - Walk 40s between
+  - Focus on quick feet
+  - Smooth, not forced
+
+COOL-DOWN:
+• 5min easy + stretch
+
+💡 Strides = neuromuscular activation, not fitness!`,
+
+                "9km easy + strides": `
+🏃 RUN - Easy + Strides (60min)
+
+WARM-UP (5min):
+• Easy jog + dynamics
+
+MAIN RUN (45min):
+• 9km @ easy pace
+• Zone 2
+
+STRIDES (10min):
+• 6x20s fast but smooth
+  - Walk 40s between
+  - Quick turnover focus
+
+COOL-DOWN:
+• Walk + stretch
+
+💡 Build with neuromuscular work!`,
+
+                "9km easy": `
+🏃 RUN - Easy (60min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (50min):
+• 9km @ Zone 2
+• Truly easy effort
+• Practice good form
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Easy aerobic development.`,
+
+                "10km easy": `
+🏃 RUN - Easy (65min)
+
+WARM-UP (5min):
+• Easy jog + dynamics
+
+MAIN RUN (55min):
+• 10km @ easy aerobic
+• Zone 2 effort
+• Comfortable breathing
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Building run volume at easy effort.`,
+
+                // LONG RUNS
+                "10km long run": `
+🏃 LONG RUN (70min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (60min):
+• 10km @ easy to moderate
+• First 7km: Zone 2
+• Last 3km: Pick up slightly if feeling good
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Long run foundation. Practice fueling if >60min.`,
+
+                "11km long run": `
+🏃 LONG RUN (75min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (65min):
+• 11km progressive
+• First 8km: Easy Zone 2
+• Last 3km: Moderate Zone 3
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Building long run endurance!`,
+
+                "12km long run": `
+🏃 LONG RUN (80min)
+
+WARM-UP (5min):
+• Easy jog + dynamics
+
+MAIN RUN (70min):
+• 12km progressive
+• First 9km: Zone 2 easy
+• Last 3km: Moderate push
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Take a gel at 45min if needed.`,
+
+                "13km long run": `
+🏃 LONG RUN (85min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (75min):
+• 13km progressive
+• 10km @ Zone 2
+• Final 3km @ moderate
+
+COOL-DOWN (5min):
+• Walk + stretch + foam roll
+
+💡 Practice race day nutrition timing!`,
+
+                "14km long run": `
+🏃 LONG RUN (90min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (80min):
+• 14km progressive
+• First 11km: Easy Zone 2
+• Last 3km: Moderate Zone 3
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Take gel at 45min. Hydrate throughout!`,
+
+                "15km long run": `
+🏃 LONG RUN (95min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (85min):
+• 15km progressive
+• 12km @ Zone 2
+• Final 3km @ stronger effort
+
+COOL-DOWN (5min):
+• Walk + stretch + foam roll
+
+💡 Race distance practice! Test nutrition.`,
+
+                "15km moderate": `
+🏃 LONG RUN MODERATE (95min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (85min):
+• 15km @ Zone 2-3
+• Slightly harder than easy
+• Practice race effort
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 Building race-specific fitness!`,
+
+                "16km long run": `
+🏃 LONG RUN (100min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (90min):
+• 16km progressive
+• 12km @ Zone 2
+• 4km @ race effort
+
+COOL-DOWN (5min):
+• Walk + stretch + foam roll
+
+💡 Longest long run! Full race simulation.
+Nutrition: Gel at 45min, 75min. Hydrate!`,
+
+                "16km + strides": `
+🏃 LONG RUN + STRIDES (100min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (85min):
+• 16km @ easy-moderate
+
+STRIDES (10min):
+• 6x20s fast
+  - Walk recovery between
+
+COOL-DOWN:
+• Walk + stretch
+
+💡 Long run with neuromuscular finish!`,
+
+                "17km long run": `
+🏃 PEAK LONG RUN (105min)
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN RUN (95min):
+• 17km progressive
+• 13km @ Zone 2
+• 4km @ race pace
+
+COOL-DOWN (5min):
+• Walk + stretch + ice bath!
+
+💡 PEAK VOLUME! After this, we taper.
+Full race nutrition protocol!`,
+
+                // TEMPO/THRESHOLD
+                "9km with 25min tempo": `
+🏃 TEMPO RUN (60min)
+
+WARM-UP (10min):
+• 2km easy jog
+
+TEMPO SET (25min):
+• 4-5km @ Tempo pace (Zone 3-4)
+  - Comfortably hard
+  - Can speak in phrases
+  - Hold steady!
+
+COOL-DOWN (10min):
+• 2km easy jog + stretch
+
+💡 Tempo = race pace practice!`,
+
+                "10km with 30min tempo": `
+🏃 TEMPO RUN (65min)
+
+WARM-UP (12min):
+• 2.5km easy jog + dynamics
+
+TEMPO SET (30min):
+• 5-6km @ Tempo pace
+  - Zone 3-4
+  - Steady effort
+  - Practice race breathing
+
+COOL-DOWN (13min):
+• 2.5km easy + stretch
+
+💡 Extended tempo - mental toughness!`,
+
+                "9km tempo 20min": `
+🏃 TEMPO RUN (55min)
+
+WARM-UP (12min):
+• 2.5km easy
+
+TEMPO (20min):
+• 4km @ threshold pace
+  - Zone 3-4
+  - Challenging but controlled
+
+COOL-DOWN (13min):
+• 2.5km easy + stretch
+
+💡 Building back tempo fitness!`,
+
+                // INTERVALS
+                "10km with 5x1km fast": `
+🏃 INTERVAL RUN (60min)
+
+WARM-UP (15min):
+• 3km easy jog + dynamics + 4 strides
+
+INTERVALS (30min):
+• 5x1km @ 10K race pace or faster
+  - Rest: 90s jog between
+  - Stay relaxed
+  - Quick turnover
+
+COOL-DOWN (15min):
+• 2km easy + stretch
+
+💡 Speed work for race performance!`,
+
+                "10km with 6x1km": `
+🏃 INTERVAL RUN (65min)
+
+WARM-UP (15min):
+• 3km easy + dynamics + strides
+
+INTERVALS (35min):
+• 6x1km @ 10K pace
+  - Rest: 90s jog between
+  - Consistent pacing!
+
+COOL-DOWN (15min):
+• 2km easy + stretch
+
+💡 Build interval volume for race speed!`,
+
+                "9km + 6x3min hills": `
+🏃 HILL INTERVALS (60min)
+
+WARM-UP (10min):
+• 2km easy + dynamics
+
+HILL REPEATS:
+• 6x3min uphill @ hard effort
+  - Jog back down recovery
+  - Stay tall, pump arms
+  - Short, quick steps
+
+COOL-DOWN (10min):
+• 2km easy + stretch
+
+💡 Hill strength = race power! Focus on form.`,
+
+                // RACE PACE
+                "10km race pace": `
+🏃 RACE PACE RUN (65min)
+
+WARM-UP (10min):
+• 2km easy + dynamics
+
+RACE PACE SET (40min):
+• 7-8km @ Half Ironman race pace
+  - This is your run split goal pace!
+  - Practice coming off tired legs
+  - Stay smooth and controlled
+
+COOL-DOWN (10min):
+• 2km easy + stretch
+
+💡 Race simulation - this is your pace!`,
+
+                "8km with race segments": `
+🏃 RACE TOUCHES (50min)
+
+TAPER RUN - stay sharp!
+
+WARM-UP (10min):
+• 2km easy
+
+RACE SEGMENTS (25min):
+• 2km easy
+• 1km @ race pace
+• 1km easy
+• 1km @ race pace
+• 1km easy
+
+COOL-DOWN (10min):
+• 1km + stretch
+
+💡 TAPER - touch race pace, don't train it!`,
+
+                "8km race pace": `
+🏃 RACE PACE (50min)
+
+TAPER RUN
+
+WARM-UP (10min):
+• 2km easy
+
+RACE PACE (25min):
+• 5km @ HIM race pace
+
+COOL-DOWN (10min):
+• 1km easy + stretch
+
+💡 TAPER - feel race pace, stay fresh!`,
+
+                // RECOVERY/EASY
+                "6km easy recovery": `
+🏃 RECOVERY RUN (40min)
+
+⚡ RECOVERY WEEK
+
+• All at Zone 1-2
+• Super easy effort
+• Shake out the legs
+• 6km very comfortable
+
+💡 RECOVERY - easier than you think!`,
+
+                "6km easy": `
+🏃 EASY RUN (40min)
+
+RECOVERY RUN
+
+• 6km @ Zone 2
+• Comfortable, easy pace
+• Focus on relaxed form
+
+💡 Easy effort - don't push today!`,
+
+                "7km easy": `
+🏃 EASY RUN (45min)
+
+RECOVERY RUN
+
+• 7km @ Zone 2
+• Easy, conversational
+• Relaxed form
+
+💡 Recovery week - keep it easy!`,
+
+                "8km easy": `
+🏃 EASY RUN (50min)
+
+EASY EFFORT
+
+• 8km @ Zone 2
+• Conversational pace
+• Practice form
+
+💡 Base building - easy effort!`,
+
+                "10km easy recovery": `
+🏃 RECOVERY LONG RUN (60min)
+
+POST DRESS REHEARSAL RECOVERY
+
+• 10km @ very easy effort
+• Zone 2 max
+• Flush out the legs
+• Gentle recovery
+
+💡 Easy recovery after big effort!`,
+
+                "6km easy + strides": `
+🏃 EASY + STRIDES (40min)
+
+TAPER RUN
+
+WARM-UP:
+• 5min easy
+
+MAIN (25min):
+• 5km @ easy Zone 2
+
+STRIDES (10min):
+• 6x20s @ fast (not sprint)
+  - Walk back between
+  - Light feet, quick turnover
+
+COOL-DOWN:
+• Walk + stretch
+
+💡 TAPER - light legs, quick feet!`,
+
+                "5km + strides": `
+🏃 RACE WEEK OPENERS (30min)
+
+RACE WEEK!
+
+WARM-UP (5min):
+• Very easy jog
+
+MAIN (15min):
+• 4km @ easy
+
+STRIDES (10min):
+• 6x20s fast
+  - Walk back between
+
+COOL-DOWN:
+• Walk + stretch
+
+💡 RACE WEEK - open up the legs!`,
+
+                "9km easy": `
+🏃 EASY RUN (55min)
+
+TAPER RUN
+
+• 9km @ easy effort
+• Zone 2 only
+• Stay relaxed
+• Good form
+
+💡 TAPER - easy effort, fresh legs!`,
+
+                "4km very easy": `
+🏃 RECOVERY JOG (30min)
+
+POST-RACE RECOVERY
+
+• Very easy jog
+• Zone 1 only
+• Just moving
+• Listen to body
+
+💡 POST-RACE - gentle movement only!`,
+
+                "5km easy": `
+🏃 EASY RUN (35min)
+
+• 5km @ easy effort
+• Zone 2
+• Light and relaxed
+
+💡 Easy effort today.`,
+
+                "6km easy": `
+🏃 EASY RUN (40min)
+
+• 6km @ Zone 2
+• Conversational pace
+• Recovery focus
+
+💡 Easy base building!`,
+
+                "12km - last long run": `
+🏃 LAST LONG RUN (75min)
+
+TAPER - FINAL LONG RUN!
+
+WARM-UP (5min):
+• Easy jog
+
+MAIN (65min):
+• 12km progressive
+• First 9km @ Zone 2
+• Last 3km @ race effort
+
+COOL-DOWN (5min):
+• Walk + stretch
+
+💡 LAST LONG RUN before race! Enjoy it!`
+            },
+
+            // ==================== BRICK WORKOUTS ====================
+            brick: {
+                "Easy brick workout": `
+🧱 BRICK - Easy (85min)
+
+BIKE (55-60min):
+• Zone 2 endurance
+• Last 5min: slightly harder
+
+TRANSITION:
+• Quick change (<3min)
+• Practice race routine
+
+RUN (20-25min):
+• Start easy - legs will feel weird!
+• Settle into Zone 2
+• Focus on cadence
+
+💡 Practice T2! Legs adapt to bike→run.`,
+
+                "Easy brick": `
+🧱 BRICK - Easy (90-100min)
+
+BIKE (60-70min):
+• Zone 2 steady
+• Comfortable pace
+• Last 10min: build slightly
+
+TRANSITION:
+• Practice quick change
+• Time yourself!
+
+RUN (25-30min):
+• Zone 2 effort
+• Quick cadence to start
+• Let legs settle
+
+💡 Easy bricks build bike→run adaptation!`,
+
+                "DRESS REHEARSAL": `
+🧱 FULL DRESS REHEARSAL (190min)
+
+THE BIG ONE! 🔥
+
+BIKE (120min):
+• Race effort simulation
+• Target race watts
+• Full race nutrition
+• Race position
+
+T2 (Practice!):
+• Race day routine
+• Lay out everything
+
+RUN (60min):
+• 10km @ race pace
+• Practice race effort
+• Race nutrition
+
+💡 DO EVERYTHING LIKE RACE DAY!
+- Same kit, same nutrition, same pacing
+- Learn what works, fix what doesn't!`,
+
+                "Full race simulation!": `
+🧱 RACE SIMULATION (190min)
+
+SEE DRESS REHEARSAL DETAILS!`,
+
+                "Bike + Run": `
+🧱 BRICK SESSION (85-115min)
+
+Standard brick format:
+
+BIKE:
+• Endurance effort
+• Build in final 10min
+
+TRANSITION:
+• Practice quick change
+
+RUN:
+• Start easy, let legs adjust
+• Build into rhythm
+
+💡 Brick = bike-to-run adaptation!`,
+
+                "Shake Out": `
+🧱 RACE WEEK SHAKE OUT (50min)
+
+RACE WEEK OPENERS!
+
+SWIM (10min):
+• 400m very easy
+
+BIKE (15min):
+• Easy spin
+• 2x30s @ race power
+
+RUN (15min):
+• Easy jog
+• 4 strides
+
+💡 RACE WEEK - just wake up the body!`,
+
+                "10min swim + 15min bike": `
+🧱 MINI SHAKE OUT (50min)
+
+RACE WEEK!
+
+SWIM (10min):
+• 400m easy technique
+
+BIKE (15min):
+• Easy spin
+• Few race-pace touches
+
+Rest/transition
+
+• Stretch and relax
+
+💡 RACE WEEK - stay loose!`,
+
+                "Openers": `
+🧱 RACE OPENERS (35min)
+
+DAY BEFORE RACE!
+
+BIKE (15min):
+• Easy spin
+• 2x30s @ race power
+
+RUN (10min):
+• Easy jog
+• 4 strides
+
+💡 RACE WEEK - just openers!`
+            },
+
+            // ==================== REST/RECOVERY ====================
+            rest: {
+                "Active recovery": `
+😴 REST DAY - Active Recovery
+
+OPTIONS:
+• Easy 20-30min walk
+• Gentle yoga/stretching
+• Foam rolling
+• Light mobility work
+
+OR complete rest if tired!
+
+💡 Listen to your body. Recovery = adaptation!`,
+
+                "Complete rest": `
+😴 COMPLETE REST
+
+• No training today!
+• Sleep well
+• Eat well
+• Hydrate
+• Mental recovery
+
+💡 Rest is when you get stronger!`,
+
+                "Rest": `
+😴 REST DAY
+
+• Take it easy
+• Optional: light walk
+• Stretch if needed
+• Focus on recovery
+
+💡 Trust the process!`,
+
+                "Complete rest - celebrate!": `
+🎉 REST & CELEBRATE!
+
+YOU JUST FINISHED A RACE!
+
+• Complete rest
+• Celebrate your achievement!
+• Good food, hydration
+• Gentle walking okay
+
+💡 Enjoy this moment - you earned it!`,
+
+                "Easy walk": `
+🚶 ACTIVE RECOVERY - Walk (30min)
+
+POST-RACE RECOVERY
+
+• Easy walk only
+• Move the body gently
+• No intensity
+• Enjoy being outside
+
+💡 Movement aids recovery!`,
+
+                "Rest before race": `
+😴 PRE-RACE REST
+
+• Complete rest
+• Stay off feet
+• Light walking only
+• Focus on:
+  - Sleep
+  - Hydration
+  - Carb loading
+  - Mental prep
+
+💡 RACE TOMORROW - stay calm, trust training!`
+            },
+
+            // ==================== RACE DAY ====================
+            race: {
+                "Half Ironman - A RACE!": `
+🏁 RACE DAY - GRIZZLYMAN! 🔥
+
+YOUR A RACE!
+
+PRE-RACE:
+• Wake 3-4h before start
+• Breakfast: familiar foods, carbs
+• Hydrate well
+• Arrive early, set up transition
+
+SWIM (1.9km):
+• Controlled start, find your rhythm
+• Sight every 6-8 strokes
+• Steady effort, save energy
+
+T1:
+• Wetsuit off, helmet on
+• Stay calm, don't rush
+
+BIKE (90km):
+• Start conservatively!
+• Target power/HR
+• Nutrition every 20min
+• Stay aero, stay steady
+
+T2:
+• Quick change
+• Grab run nutrition
+
+RUN (21.1km):
+• Start easy - let legs adjust
+• Walk aid stations
+• Negative split if possible
+• ENJOY THE FINISH!
+
+💪 YOU'VE TRAINED FOR THIS! TRUST YOURSELF!`,
+
+                "Half Ironman - B RACE": `
+🏁 RACE DAY - B RACE
+
+RACE STRATEGY:
+
+Use this as training/practice!
+• Test race nutrition
+• Practice pacing
+• Learn course management
+• Don't taper fully for B race
+
+SWIM: Steady, controlled
+BIKE: Slightly conservative
+RUN: Practice race effort
+
+💡 B Race = learning opportunity!
+Don't peak for this, save it for A race!`,
+
+                "FINAL RACE - Season Complete!": `
+🏁 FINAL RACE - HRADEC KRÁLOVÉ!
+
+SEASON FINALE! 🎉
+
+You've done 3 Half Ironmans this season!
+
+RACE APPROACH:
+• Leave it all out there
+• Enjoy every moment
+• Celebrate at finish!
+
+SWIM: Confident, strong start
+BIKE: Give what you've got
+RUN: Empty the tank!
+
+💪 FINISH THE SEASON STRONG!
+This is what all the training was for!`
+            }
+        };
+
+        // Function to get workout details
+        function getWorkoutDetails(type, details) {
+            // Check if we have a library entry for this exact workout
+            if (workoutLibrary[type] && workoutLibrary[type][details]) {
+                return workoutLibrary[type][details];
+            }
+            
+            // Try partial matching for swim distances
+            if (type === 'swim') {
+                for (let key in workoutLibrary.swim) {
+                    if (details.includes(key.split(' ')[0]) || key.includes(details.split(' ')[0])) {
+                        return workoutLibrary.swim[key];
+                    }
+                }
+            }
+            
+            // Try partial matching for strength
+            if (type === 'strength') {
+                for (let key in workoutLibrary.strength) {
+                    if (details.includes(key) || key.includes(details)) {
+                        return workoutLibrary.strength[key];
+                    }
+                }
+            }
+            
+            // Try partial matching for bike
+            if (type === 'bike') {
+                for (let key in workoutLibrary.bike) {
+                    if (details.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
+                        return workoutLibrary.bike[key];
+                    }
+                }
+            }
+            
+            // Try partial matching for run
+            if (type === 'run') {
+                for (let key in workoutLibrary.run) {
+                    if (details.includes(key.split(' ')[0]) || key.includes(details)) {
+                        return workoutLibrary.run[key];
+                    }
+                }
+            }
+            
+            // Try brick
+            if (type === 'brick' && workoutLibrary.brick) {
+                for (let key in workoutLibrary.brick) {
+                    if (details.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
+                        return workoutLibrary.brick[key];
+                    }
+                }
+            }
+            
+            // Try rest
+            if (type === 'rest' && workoutLibrary.rest) {
+                for (let key in workoutLibrary.rest) {
+                    if (details.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
+                        return workoutLibrary.rest[key];
+                    }
+                }
+            }
+            
+            // Try race
+            if (type === 'race' && workoutLibrary.race) {
+                for (let key in workoutLibrary.race) {
+                    if (details.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
+                        return workoutLibrary.race[key];
+                    }
+                }
+            }
+            
+            return null;
+        }
+
         // ============ FIREBASE CONFIGURATION ============
         const firebaseConfig = {
             apiKey: "AIzaSyDWJViKzgjdqvvtuFmaeOPAVb0vEiPmST4",
@@ -1945,7 +4233,31 @@
             document.getElementById('modalNotesInput').value = workoutProgress[id]?.notes || '';
             document.getElementById('stravaLinkInput').value = workoutProgress[id]?.strava || '';
 
+            // Load full workout details from library
+            const fullDetails = getWorkoutDetails(workout.type, workout.details);
+            const detailsSection = document.getElementById('workoutDetailsSection');
+            const detailsText = document.getElementById('workoutDetailsText');
+            const detailsContent = document.getElementById('workoutDetailsContent');
+            const toggle = document.querySelector('.workout-details-toggle');
+            
+            if (fullDetails) {
+                detailsSection.style.display = 'block';
+                detailsText.textContent = fullDetails;
+                // Reset expanded state
+                detailsContent.classList.remove('expanded');
+                if (toggle) toggle.classList.remove('expanded');
+            } else {
+                detailsSection.style.display = 'none';
+            }
+
             document.getElementById('modalOverlay').classList.add('visible');
+        }
+
+        function toggleWorkoutDetails() {
+            const content = document.getElementById('workoutDetailsContent');
+            const toggle = document.querySelector('.workout-details-toggle');
+            content.classList.toggle('expanded');
+            toggle.classList.toggle('expanded');
         }
 
         function closeModal() {
