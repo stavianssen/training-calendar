@@ -434,6 +434,24 @@
         .tooltip-status.done { color: var(--accent-done); }
         .tooltip-status.skipped { color: var(--accent-skipped); }
 
+        .tooltip-strava {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            background: #fc4c02;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .tooltip-strava:hover {
+            background: #e34402;
+            transform: scale(1.05);
+        }
+
         .stats-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1026,6 +1044,10 @@
                     <span class="modal-value" id="modalDetails">-</span>
                 </div>
                 <div class="modal-notes">
+                    <label for="stravaLinkInput">🔗 Strava Activity Link</label>
+                    <input type="url" id="stravaLinkInput" placeholder="https://www.strava.com/activities/..." style="width: 100%; padding: 0.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: inherit; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                </div>
+                <div class="modal-notes">
                     <label for="modalNotesInput">Notes (e.g., "Swapped to trainer", "Felt great!")</label>
                     <textarea id="modalNotesInput" placeholder="Add your notes here..."></textarea>
                 </div>
@@ -1141,14 +1163,30 @@
 
                 // Now start real-time listener
                 cloudListener = userRef.on('value', (snapshot) => {
-                    if (isSyncing) return; // Prevent loops
+                    if (isSyncing) return; // Prevent loops during our own saves
                     
                     const data = snapshot.val();
                     if (data && data.progress) {
-                        workoutProgress = data.progress;
-                        saveProgressLocal();
-                        renderCalendar();
-                        updateProgressBar();
+                        // Only update if cloud data is newer or has more entries
+                        const cloudKeys = Object.keys(data.progress).length;
+                        const localKeys = Object.keys(workoutProgress).length;
+                        
+                        // Merge cloud data (cloud wins only for items we don't have locally with same/older timestamp)
+                        let needsUpdate = false;
+                        Object.keys(data.progress).forEach(id => {
+                            const cloudItem = data.progress[id];
+                            const localItem = workoutProgress[id];
+                            if (!localItem || (cloudItem.updated > (localItem.updated || 0))) {
+                                workoutProgress[id] = cloudItem;
+                                needsUpdate = true;
+                            }
+                        });
+                        
+                        if (needsUpdate) {
+                            saveProgressLocal();
+                            renderCalendar();
+                            updateProgressBar();
+                        }
                         updateSyncUI('connected', '<strong>☁️ Cloud Sync Active</strong> - Auto-syncing across devices');
                     }
                 });
@@ -1618,6 +1656,10 @@
 
         function renderCalendar() {
             const container = document.getElementById('calendar');
+            
+            // Clear existing content to prevent duplicates
+            container.innerHTML = '';
+            
             const months = {};
             
             // Group weeks by month
@@ -1662,7 +1704,7 @@
                         if (workoutProgress[day.id]?.status === 'done') weekDone++;
                     });
                     const weekProgressText = weekDone > 0 ? `${weekDone}/${week.days.length}` : '';
-
+                    
                     weekRow.innerHTML = `
                         <div class="week-header">
                             <span class="week-number">Week ${week.week}</span>
@@ -1715,8 +1757,12 @@
                 const progress = workoutProgress[id];
                 
                 let statusHtml = '';
+                let stravaHtml = '';
                 if (progress?.status === 'done') {
                     statusHtml = `<div class="tooltip-status done">✓ Completed${progress.notes ? ' • ' + progress.notes : ''}</div>`;
+                    if (progress.strava) {
+                        stravaHtml = `<a href="${progress.strava}" target="_blank" class="tooltip-strava" onclick="event.stopPropagation();">🔗 View on Strava</a>`;
+                    }
                 } else if (progress?.status === 'skipped') {
                     statusHtml = `<div class="tooltip-status skipped">✗ Skipped${progress.notes ? ' • ' + progress.notes : ''}</div>`;
                 }
@@ -1726,6 +1772,7 @@
                     <div class="tooltip-session">${main}</div>
                     <div class="tooltip-details">${duration > 0 ? duration + ' min • ' : ''}${details}</div>
                     ${statusHtml}
+                    ${stravaHtml}
                 `;
                 tooltip.classList.add('visible');
             }
@@ -1896,6 +1943,7 @@
             document.getElementById('modalDuration').textContent = workout.duration > 0 ? `${workout.duration} min` : 'Rest day';
             document.getElementById('modalDetails').textContent = workout.details;
             document.getElementById('modalNotesInput').value = workoutProgress[id]?.notes || '';
+            document.getElementById('stravaLinkInput').value = workoutProgress[id]?.strava || '';
 
             document.getElementById('modalOverlay').classList.add('visible');
         }
@@ -1908,7 +1956,8 @@
         function markDone() {
             if (!currentWorkoutId) return;
             const notes = document.getElementById('modalNotesInput').value;
-            workoutProgress[currentWorkoutId] = { status: 'done', notes, updated: Date.now() };
+            const strava = document.getElementById('stravaLinkInput').value;
+            workoutProgress[currentWorkoutId] = { status: 'done', notes, strava, updated: Date.now() };
             saveProgress();
             renderCalendar();
             updateProgressBar();
@@ -1918,7 +1967,8 @@
         function markSkipped() {
             if (!currentWorkoutId) return;
             const notes = document.getElementById('modalNotesInput').value;
-            workoutProgress[currentWorkoutId] = { status: 'skipped', notes, updated: Date.now() };
+            const strava = document.getElementById('stravaLinkInput').value;
+            workoutProgress[currentWorkoutId] = { status: 'skipped', notes, strava, updated: Date.now() };
             saveProgress();
             renderCalendar();
             updateProgressBar();
