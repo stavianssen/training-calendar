@@ -1,0 +1,34 @@
+Week,Phase,Swim_km,Bike_km,Run_km,Total_Hours,Recovery_Week,Notes
+1,Intro,1.5,30,10,4.0,No,Short intro week (Jan 2-4) - 3 days only
+2,Initial,3.0,55,25,6.5,No,First full training week
+3,Initial,3.5,60,28,7.0,No,Build volume
+4,Initial,4.0,65,30,7.5,No,Build volume
+5,Initial,2.5,40,18,5.0,Yes,Recovery - absorb fitness
+6,Initial,4.0,70,32,8.0,No,Build volume
+7,Initial,4.5,75,35,8.5,No,Build volume
+8,Initial,4.5,80,38,9.0,No,CSS test week
+9,Initial,3.0,50,22,5.5,Yes,Recovery - absorb fitness
+10,Initial,5.0,90,42,10.0,No,Peak initial phase volume
+11,Progression,4.5,85,40,9.5,No,Add intensity - progression begins
+12,Progression,5.0,90,42,10.0,No,Hill work begins
+13,Progression,5.0,95,45,10.5,No,Race pace intervals
+14,Progression,3.5,60,28,6.5,Yes,Mid-progression recovery
+15,Progression,5.5,95,45,10.5,No,Build towards peak
+16,Progression,5.5,100,48,11.0,No,Peak progression volume
+17,Progression,5.5,100,48,11.0,No,Race simulation week
+18,Progression,4.0,70,32,7.5,Yes,Recovery before taper
+19,Taper,4.0,75,35,8.0,No,Taper begins - reduce 20%
+20,Taper,3.0,55,25,6.0,No,Taper - reduce 40%
+21,Taper,2.5,45,20,5.0,No,Race week - Grizzlyman May 24
+22,Recovery,2.0,30,15,4.0,Yes,Post-Grizzlyman recovery
+23,Recovery,2.0,50,20,5.5,No,Race week - Czechman June 7
+24,Build_2,4.0,75,35,8.0,No,Rebuild begins
+25,Build_2,4.5,85,38,9.0,No,Build volume
+26,Build_2,5.0,90,42,9.5,No,Peak rebuild
+27,Taper_2,4.0,70,32,7.5,No,Taper begins for Vitoria
+28,Taper_2,2.5,45,20,5.0,No,Race week - Vitoria-Gasteiz July 12
+29,Recovery_2,2.0,35,18,4.5,Yes,Post-Vitoria recovery
+30,Recovery_2,3.5,60,28,7.0,No,Rebuild
+31,Recovery_2,4.0,75,35,8.0,No,Build for Hradec
+32,Taper_3,3.5,60,28,6.5,No,Mini-taper
+33,Taper_3,2.0,40,18,4.5,No,Race week - Hradec Kralove Aug 16

@@ -1,0 +1,27 @@
+Day,Date,Time,Session_Type,Session_Name,Duration,Details,Zone,Equipment,Nutrition_Pre,Nutrition_Post,Notes
+Monday,2026-04-20,05:30,Mobility,Morning Espresso,15,Ankles hips hamstrings,Easy,Mat,Coffee,N/A,Week 17 - Race Simulation
+Monday,2026-04-20,06:00,Strength,PUSH + CORE,30,PUSH + CORE,Moderate,Barbell dumbbells bench,Toast + honey + coffee,Protein shake + banana,
+Tuesday,2026-04-21,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Tuesday,2026-04-21,06:00,Run,Trail Hills,65,10km trail hills,Zone 3-4,Running shoes,Toast + honey + coffee,Full breakfast,
+Wednesday,2026-04-22,05:30,Mobility,Morning Espresso,15,Standard routine,Easy,Mat,Coffee,N/A,
+Wednesday,2026-04-22,06:00,Run,Race Pace Effort,65,10km race pace effort,Race pace,Running shoes,Toast + honey + coffee,Full breakfast,
+Thursday,2026-04-23,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Thursday,2026-04-23,06:00,Bike,Race Simulation,105,Race effort simulation,Race pace,Tacx or road,Toast + honey + coffee,Full breakfast,
+Thursday,2026-04-23,After bike,Strength,PULL,30,PULL,Moderate,Barbell dumbbells bench,N/A,Full breakfast,
+Friday,2026-04-24,05:30,Mobility,Morning Espresso,20,Extended version,Easy,Mat roller,Coffee,N/A,
+Friday,2026-04-24,06:00,Strength,LEGS,30,LEGS,Moderate,Barbell dumbbells bench,Toast + honey + coffee,Full breakfast,
+Saturday,2026-04-25,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Saturday,2026-04-25,07:00,Bike,Full Race Simulation,150,Full race simulation,Race pace,Tacx or road,Race breakfast,Race nutrition,
+Saturday,2026-04-25,After bike,Run,Brick Run,40,8km brick,Race pace,Running shoes,N/A,Race nutrition,DRESS REHEARSAL
+Sunday,2026-04-26,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Sunday,2026-04-26,07:00,Run,Easy Recovery,60,10km easy recovery,Zone 1-2,Running shoes,Full breakfast 2h before,Large recovery meal,
+
+WEEKLY TOTALS:
+Swim: 0 km
+Bike: ~105 km
+Run: 38 km
+Strength: 3 sessions
+Mobility: 7 sessions
+Total Training: ~11.1 hours
+
+WEEK FOCUS: Race simulation week. Full dress rehearsal on Saturday.

@@ -1,0 +1,24 @@
+Day,Date,Time,Session_Type,Session_Name,Duration,Details,Zone,Equipment,Nutrition_Pre,Nutrition_Post,Notes
+Monday,2026-03-23,05:30,Mobility,Morning Espresso,15,Ankles hips hamstrings,Easy,Mat,Coffee,N/A,Race pace intervals
+Monday,2026-03-23,06:00,Strength,PUSH + CORE,45,"Push-ups, DB press, Core circuit",Moderate,Dumbbells bands,Toast + honey,Protein shake + banana,
+Tuesday,2026-03-24,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Tuesday,2026-03-24,06:00,Swim,Race Simulation,70,"WU 400m, 1900m straight @ race pace, CD 400m",Zone 3-4,Paddles,Toast + honey,Full breakfast,Total: 2700m
+Wednesday,2026-03-25,05:30,Mobility,Morning Espresso,15,Standard routine,Easy,Mat,Coffee,N/A,
+Wednesday,2026-03-25,06:00,Run,Interval Run,60,10km with 5x1km @ 4:30-4:45 + 2min jog,Zone 4,Running shoes,Toast + honey,Full breakfast,
+Thursday,2026-03-26,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Thursday,2026-03-26,06:00,Bike,Threshold Blocks,100,"WU 15min, 2x20min @ 95-100% FTP, CD 10min",Zone 4,Tacx trainer,Toast + honey,Full breakfast,
+Thursday,2026-03-26,After bike,Strength,PULL,30,"Dead hangs, Rows, Face pulls",Moderate,Bands dumbbells,N/A,Full breakfast,
+Friday,2026-03-27,05:30,Mobility,Morning Espresso,20,Extended version,Easy,Mat roller,Coffee,N/A,
+Friday,2026-03-27,06:00,Strength,LEGS,40,"Squats, RDL, Lunges, Step-ups",Moderate,Dumbbells,Toast + honey,Full breakfast,
+Saturday,2026-03-28,07:00,Bike,Long + Race Pace,135,Long ride with 30min at race effort,Zone 2-4,Tacx or road,Full breakfast 2h before,Recovery meal,
+Sunday,2026-03-29,07:00,Run,Long Run,100,16km long run,Zone 2,Running shoes,Full breakfast 2h before,Large recovery meal,
+
+WEEKLY TOTALS:
+Swim: 2.7 km
+Bike: ~100 km
+Run: 26 km
+Strength: 3 sessions
+Mobility: 6 sessions
+Total Training: ~10.5 hours
+
+WEEK FOCUS: Race pace intervals across all disciplines.

@@ -1,0 +1,25 @@
+Day,Date,Time,Session_Type,Session_Name,Duration,Details,Zone,Equipment,Nutrition_Pre,Nutrition_Post,Notes
+Monday,2026-02-16,05:30,Mobility,Morning Espresso,15,Ankles hips hamstrings,Easy,Mat,Coffee,N/A,CSS TEST WEEK
+Monday,2026-02-16,06:00,Strength,PUSH + CORE,45,"Push-ups, DB press, Core circuit",Moderate,Dumbbells bands,Toast + honey,Protein shake + banana,
+Tuesday,2026-02-17,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Tuesday,2026-02-17,06:00,Swim,CSS Test,70,"WU 400m, 400m TT (rest 10min), 200m TT, CD 200m + easy",Zone 2-Max,No paddles,Toast + honey,Full breakfast,Total: 2400m - Establish CSS pace
+Wednesday,2026-02-18,05:30,Mobility,Morning Espresso,15,Standard routine,Easy,Mat,Coffee,N/A,
+Wednesday,2026-02-18,06:00,Run,Easy Aerobic,60,9km easy,Zone 2,Running shoes,Toast + honey,Full breakfast,
+Thursday,2026-02-19,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Thursday,2026-02-19,06:00,Bike,ROUVY Climber Plan,90,Aerobic endurance,Zone 2-3,Tacx trainer,Toast + honey,Full breakfast,
+Thursday,2026-02-19,After bike,Strength,PULL,35,"Dead hangs, Rows, Face pulls",Moderate,Bands dumbbells,N/A,Full breakfast,
+Friday,2026-02-20,05:30,Mobility,Morning Espresso,20,Extended version,Easy,Mat roller,Coffee,N/A,
+Friday,2026-02-20,06:00,Strength,LEGS,40,"Squats, RDL, Lunges, Step-ups",Moderate,Dumbbells,Toast + honey,Full breakfast,
+Saturday,2026-02-21,07:00,Bike,Long Endurance,110,3+ hour ride,Zone 2,Tacx or road,Full breakfast 2h before,Recovery meal,
+Sunday,2026-02-22,07:00,Run,Long Run,90,14km long run,Zone 1-2,Running shoes,Full breakfast 2h before,Large recovery meal,
+
+WEEKLY TOTALS:
+Swim: 2.4 km
+Bike: ~83 km
+Run: 23 km
+Strength: 3 sessions
+Mobility: 6 sessions
+Total Training: ~9.0 hours
+
+WEEK FOCUS: CSS swim test to establish training zones.
+

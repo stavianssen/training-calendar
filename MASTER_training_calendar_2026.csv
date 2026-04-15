@@ -1,0 +1,228 @@
+Week,Phase,Date,Day,Morning_Mobility,Main_Session,Main_Duration,Main_Details,Secondary_Session,Secondary_Duration,Secondary_Details,Intensity,Nutrition_Pre,Nutrition_Post,Swim_km,Bike_km,Run_km,Weekly_Swim_Total,Weekly_Bike_Total,Weekly_Run_Total,Notes
+1,Intro,2026-01-02,Friday,15 min - hips ankles hamstrings,SWIM,50,1500m easy technique focus,,,Zone 2,Toast + honey + coffee,Full breakfast,1.5,0,0,1.5,0,0,Week 1 - INTRO WEEK (3 days only)
+1,Intro,2026-01-03,Saturday,10 min - quick version,BIKE,75,Long endurance - ROUVY or outdoor,,,Zone 2,Full breakfast 2h before,Recovery meal,0,30,0,1.5,30,0,
+1,Intro,2026-01-04,Sunday,10 min - quick version,RUN,60,8km easy + strength,STRENGTH,30,Full body intro,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,8,1.5,30,8,Ready to crush it from Monday!
+2,Initial,2026-01-05,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 2 - First full training week
+2,Initial,2026-01-06,Tuesday,10 min - quick version,SWIM,60,1800m - Drill and Build,,,Zone 2,Toast + honey + coffee,Full breakfast,1.8,0,0,1.8,0,0,Focus on catch phase
+2,Initial,2026-01-07,Wednesday,15 min - standard routine,RUN,50,7km easy aerobic,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,7,1.8,0,7,HR 130-145
+2,Initial,2026-01-08,Thursday,10 min - quick version,BIKE,75,ROUVY Climber Plan,STRENGTH,30,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,28,0,1.8,28,7,
+2,Initial,2026-01-09,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,1.8,28,7,
+2,Initial,2026-01-10,Saturday,10 min - quick version,BIKE,80,Long endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,32,0,1.8,60,7,
+2,Initial,2026-01-11,Sunday,10 min - quick version,RUN,70,10km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,10,1.8,60,17,Building time on feet
+3,Initial,2026-01-12,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 3 - Build volume
+3,Initial,2026-01-13,Tuesday,10 min - quick version,SWIM,60,1900m technique + endurance,,,Zone 2,Toast + honey + coffee,Full breakfast,1.9,0,0,1.9,0,0,
+3,Initial,2026-01-14,Wednesday,15 min - standard routine,RUN,55,8km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,8,1.9,0,8,
+3,Initial,2026-01-15,Thursday,10 min - quick version,BIKE,80,ROUVY Climber Plan,STRENGTH,30,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,30,0,1.9,30,8,
+3,Initial,2026-01-16,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,1.9,30,8,
+3,Initial,2026-01-17,Saturday,10 min - quick version,BIKE,90,Long endurance + hills,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,35,0,1.9,65,8,
+3,Initial,2026-01-18,Sunday,10 min - quick version,RUN,75,11km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,11,1.9,65,19,
+4,Initial,2026-01-19,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 4 - Build volume
+4,Initial,2026-01-20,Tuesday,10 min - quick version,SWIM,65,2000m drill + endurance,,,Zone 2,Toast + honey + coffee,Full breakfast,2.0,0,0,2.0,0,0,
+4,Initial,2026-01-21,Wednesday,15 min - standard routine,RUN,55,8km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,8,2.0,0,8,
+4,Initial,2026-01-22,Thursday,10 min - quick version,BIKE,85,ROUVY Climber Plan,STRENGTH,30,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,32,0,2.0,32,8,
+4,Initial,2026-01-23,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.0,32,8,
+4,Initial,2026-01-24,Saturday,10 min - quick version,BIKE,95,Long endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,38,0,2.0,70,8,
+4,Initial,2026-01-25,Sunday,10 min - quick version,RUN,80,12km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,12,2.0,70,20,
+5,Initial,2026-01-26,Monday,15 min - hips ankles hamstrings,STRENGTH,35,PUSH + CORE - lighter,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 5 - RECOVERY WEEK
+5,Initial,2026-01-27,Tuesday,10 min - quick version,SWIM,50,1500m easy technique,,,Zone 1-2,Toast + honey + coffee,Full breakfast,1.5,0,0,1.5,0,0,
+5,Initial,2026-01-28,Wednesday,15 min - standard routine,RUN,40,6km easy recovery,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,6,1.5,0,6,
+5,Initial,2026-01-29,Thursday,10 min - quick version,BIKE,55,Easy ROUVY,,,Zone 2,Toast + honey + coffee,Full breakfast,0,22,0,1.5,22,6,
+5,Initial,2026-01-30,Friday,20 min - extended mobility,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,1.5,22,6,
+5,Initial,2026-01-31,Saturday,10 min - quick version,STRENGTH,35,LEGS - light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,1.5,22,6,
+5,Initial,2026-02-01,Sunday,10 min - quick version,BIKE,60,Easy endurance + brick,RUN,25,5km easy,Zone 1-2,Full breakfast 2h before,Recovery meal,0,20,5,1.5,42,11,
+6,Initial,2026-02-02,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 6 - Build volume
+6,Initial,2026-02-03,Tuesday,10 min - quick version,SWIM,65,2100m technique + main set,,,Zone 2,Toast + honey + coffee,Full breakfast,2.1,0,0,2.1,0,0,
+6,Initial,2026-02-04,Wednesday,15 min - standard routine,RUN,55,8km easy,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,8,2.1,0,8,
+6,Initial,2026-02-05,Thursday,10 min - quick version,BIKE,85,ROUVY Climber Plan,STRENGTH,35,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,32,0,2.1,32,8,
+6,Initial,2026-02-06,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.1,32,8,
+6,Initial,2026-02-07,Saturday,10 min - quick version,BIKE,100,Long endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,42,0,2.1,74,8,
+6,Initial,2026-02-08,Sunday,10 min - quick version,RUN,80,12km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,12,2.1,74,20,
+7,Initial,2026-02-09,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 7 - Build volume
+7,Initial,2026-02-10,Tuesday,10 min - quick version,SWIM,65,2200m drill + endurance,,,Zone 2,Toast + honey + coffee,Full breakfast,2.2,0,0,2.2,0,0,
+7,Initial,2026-02-11,Wednesday,15 min - standard routine,RUN,60,9km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,9,2.2,0,9,
+7,Initial,2026-02-12,Thursday,10 min - quick version,BIKE,90,ROUVY Climber Plan,STRENGTH,35,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,35,0,2.2,35,9,
+7,Initial,2026-02-13,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.2,35,9,
+7,Initial,2026-02-14,Saturday,10 min - quick version,BIKE,105,Long endurance + hills,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,45,0,2.2,80,9,
+7,Initial,2026-02-15,Sunday,10 min - quick version,RUN,85,13km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,13,2.2,80,22,
+8,Initial,2026-02-16,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 8 - CSS test week
+8,Initial,2026-02-17,Tuesday,10 min - quick version,SWIM,70,CSS Test - 2400m,,,Zone 2-Max,Toast + honey + coffee,Full breakfast,2.4,0,0,2.4,0,0,CSS test: 400m TT + 200m TT
+8,Initial,2026-02-18,Wednesday,15 min - standard routine,RUN,60,9km easy,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,9,2.4,0,9,
+8,Initial,2026-02-19,Thursday,10 min - quick version,BIKE,90,ROUVY Climber Plan,STRENGTH,35,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,35,0,2.4,35,9,
+8,Initial,2026-02-20,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.4,35,9,
+8,Initial,2026-02-21,Saturday,10 min - quick version,BIKE,110,Long endurance 3h+,,,Zone 2,Full breakfast 2h before,Recovery meal,0,48,0,2.4,83,9,
+8,Initial,2026-02-22,Sunday,10 min - quick version,RUN,90,14km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,14,2.4,83,23,
+9,Initial,2026-02-23,Monday,15 min - hips ankles hamstrings,STRENGTH,35,PUSH + CORE - lighter,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 9 - RECOVERY WEEK
+9,Initial,2026-02-24,Tuesday,10 min - quick version,SWIM,50,1600m easy technique,,,Zone 1-2,Toast + honey + coffee,Full breakfast,1.6,0,0,1.6,0,0,
+9,Initial,2026-02-25,Wednesday,15 min - standard routine,RUN,40,6km easy recovery,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,6,1.6,0,6,
+9,Initial,2026-02-26,Thursday,10 min - quick version,BIKE,55,Easy ROUVY,,,Zone 2,Toast + honey + coffee,Full breakfast,0,22,0,1.6,22,6,
+9,Initial,2026-02-27,Friday,20 min - extended mobility,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,1.6,22,6,
+9,Initial,2026-02-28,Saturday,10 min - quick version,STRENGTH,35,LEGS - light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,1.6,22,6,
+9,Initial,2026-03-01,Sunday,10 min - quick version,BIKE,65,Easy endurance + brick,RUN,25,5km easy,Zone 1-2,Full breakfast 2h before,Recovery meal,0,28,5,1.6,50,11,
+10,Initial,2026-03-02,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 10 - Peak initial volume
+10,Initial,2026-03-03,Tuesday,10 min - quick version,SWIM,70,2700m threshold sets,,,Zone 2-3,Toast + honey + coffee,Full breakfast,2.7,0,0,2.7,0,0,
+10,Initial,2026-03-04,Wednesday,15 min - standard routine,RUN,65,10km easy,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,10,2.7,0,10,
+10,Initial,2026-03-05,Thursday,10 min - quick version,BIKE,100,ROUVY + hills,STRENGTH,35,PULL,Zone 2-3,Toast + honey + coffee,Full breakfast,0,42,0,2.7,42,10,
+10,Initial,2026-03-06,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.7,42,10,
+10,Initial,2026-03-07,Saturday,10 min - quick version,BIKE,120,Long endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,52,0,2.7,94,10,
+10,Initial,2026-03-08,Sunday,10 min - quick version,RUN,95,15km long run,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,15,2.7,94,25,
+11,Progression,2026-03-09,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 11 - PROGRESSION begins
+11,Progression,2026-03-10,Tuesday,10 min - quick version,SWIM,70,2500m threshold pyramid,,,Zone 3-4,Toast + honey + coffee,Full breakfast,2.5,0,0,2.5,0,0,Adding intensity
+11,Progression,2026-03-11,Wednesday,15 min - standard routine,RUN,60,9km with tempo 25min,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,9,2.5,0,9,
+11,Progression,2026-03-12,Thursday,10 min - quick version,BIKE,90,Sweet spot intervals,STRENGTH,30,PULL,Zone 3-4,Toast + honey + coffee,Full breakfast,0,38,0,2.5,38,9,
+11,Progression,2026-03-13,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.5,38,9,
+11,Progression,2026-03-14,Saturday,10 min - quick version,BIKE,120,Long endurance + hills,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,50,0,2.5,88,9,
+11,Progression,2026-03-15,Sunday,10 min - quick version,RUN,95,15km long run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,15,2.5,88,24,
+12,Progression,2026-03-16,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 12 - Hill work
+12,Progression,2026-03-17,Tuesday,10 min - quick version,SWIM,70,2600m race pace sets,,,Zone 3-4,Toast + honey + coffee,Full breakfast,2.6,0,0,2.6,0,0,
+12,Progression,2026-03-18,Wednesday,15 min - standard routine,RUN,60,9km hill intervals,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,9,2.6,0,9,
+12,Progression,2026-03-19,Thursday,10 min - quick version,BIKE,95,Hill repeats,STRENGTH,30,PULL,Zone 4,Toast + honey + coffee,Full breakfast,0,40,0,2.6,40,9,
+12,Progression,2026-03-20,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.6,40,9,
+12,Progression,2026-03-21,Saturday,10 min - quick version,BIKE,130,Long ride with climbs,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,55,0,2.6,95,9,
+12,Progression,2026-03-22,Sunday,10 min - quick version,RUN,100,16km long run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,16,2.6,95,25,
+13,Progression,2026-03-23,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 13 - Race pace
+13,Progression,2026-03-24,Tuesday,10 min - quick version,SWIM,70,2700m race simulation,,,Zone 3-4,Toast + honey + coffee,Full breakfast,2.7,0,0,2.7,0,0,
+13,Progression,2026-03-25,Wednesday,15 min - standard routine,RUN,60,10km with intervals,,,Zone 4,Toast + honey + coffee,Full breakfast,0,0,10,2.7,0,10,
+13,Progression,2026-03-26,Thursday,10 min - quick version,BIKE,100,Threshold blocks,STRENGTH,30,PULL,Zone 4,Toast + honey + coffee,Full breakfast,0,42,0,2.7,42,10,
+13,Progression,2026-03-27,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.7,42,10,
+13,Progression,2026-03-28,Saturday,10 min - quick version,BIKE,135,Long + race pace,,,Zone 2-4,Full breakfast 2h before,Recovery meal,0,58,0,2.7,100,10,
+13,Progression,2026-03-29,Sunday,10 min - quick version,RUN,100,16km long run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,16,2.7,100,26,
+14,Progression,2026-03-30,Monday,15 min - hips ankles hamstrings,STRENGTH,35,PUSH + CORE - lighter,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 14 - RECOVERY
+14,Progression,2026-03-31,Tuesday,10 min - quick version,SWIM,55,1800m easy,,,Zone 1-2,Toast + honey + coffee,Full breakfast,1.8,0,0,1.8,0,0,
+14,Progression,2026-04-01,Wednesday,15 min - standard routine,RUN,45,7km easy,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,7,1.8,0,7,
+14,Progression,2026-04-02,Thursday,10 min - quick version,BIKE,60,Easy endurance,,,Zone 2,Toast + honey + coffee,Full breakfast,0,25,0,1.8,25,7,
+14,Progression,2026-04-03,Friday,20 min - extended mobility,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,1.8,25,7,
+14,Progression,2026-04-04,Saturday,10 min - quick version,STRENGTH,35,LEGS - light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,1.8,25,7,
+14,Progression,2026-04-05,Sunday,10 min - quick version,BIKE,70,Easy + brick,RUN,30,6km easy,Zone 1-2,Full breakfast 2h before,Recovery meal,0,35,6,1.8,60,13,
+15,Progression,2026-04-06,Monday,15 min - hips ankles hamstrings,STRENGTH,45,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 15 - Build to peak
+15,Progression,2026-04-07,Tuesday,10 min - quick version,SWIM,75,2800m race pace,,,Zone 3-4,Toast + honey + coffee,Full breakfast,2.8,0,0,2.8,0,0,
+15,Progression,2026-04-08,Wednesday,15 min - standard routine,RUN,65,10km tempo,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,10,2.8,0,10,
+15,Progression,2026-04-09,Thursday,10 min - quick version,BIKE,100,Sweet spot + hills,STRENGTH,30,PULL,Zone 3-4,Toast + honey + coffee,Full breakfast,0,42,0,2.8,42,10,
+15,Progression,2026-04-10,Friday,20 min - extended,STRENGTH,40,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,2.8,42,10,
+15,Progression,2026-04-11,Saturday,10 min - quick version,BIKE,140,Long ride + climbs,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,58,0,2.8,100,10,
+15,Progression,2026-04-12,Sunday,10 min - quick version,RUN,100,16km long run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,16,2.8,100,26,
+16,Progression,2026-04-13,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE (Bench Press 6-8 + DB Shoulder Press 12 + Incline Bench 6-8 + Skull Crushers 12 / Core),,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 16 - PEAK PROGRESSION (no swim)
+16,Progression,2026-04-14,Tuesday,10 min - quick version,RUN,55,Hill Repeats - Vítkov from Karlín 6-8x výběh,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,8,0,0,8,
+16,Progression,2026-04-15,Wednesday,15 min - standard routine,RUN,65,10km with 6x1km @ race pace,,,Zone 4,Toast + honey + coffee,Full breakfast,0,0,10,0,0,18,
+16,Progression,2026-04-16,Thursday,10 min - quick version,BIKE,105,Threshold Blocks 2x25min @ FTP,STRENGTH,30,PULL (Deadlift 6-8 + Barbell Row 8-10 + Lat Pulldown 8-10 + Face Pulls 12-15 + Curls 12),Zone 4,Toast + honey + coffee,Full breakfast,0,45,0,0,45,18,
+16,Progression,2026-04-17,Friday,20 min - extended,STRENGTH,30,LEGS (Back Squat 6-8 + RDL 8-10 + Bulgarian Split Squat 10ea + Leg Press 10-12 + Calf Raises 15),,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,45,18,
+16,Progression,2026-04-18,Saturday,10 min - quick version,BIKE,150,Peak long ride + nutrition practice,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,60,0,0,105,18,
+16,Progression,2026-04-19,Sunday,10 min - quick version,RUN,105,17km long trail run with hills,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,17,0,105,35,Peak run volume
+17,Progression,2026-04-20,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 17 - Race Simulation
+17,Progression,2026-04-21,Tuesday,10 min - quick version,RUN,65,10km trail hills,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,10,0,0,10,
+17,Progression,2026-04-22,Wednesday,15 min - standard routine,RUN,65,10km race pace effort,,,Race pace,Toast + honey + coffee,Full breakfast,0,0,10,0,0,20,
+17,Progression,2026-04-23,Thursday,10 min - quick version,BIKE,105,Race effort simulation,STRENGTH,30,PULL,Race pace,Toast + honey + coffee,Full breakfast,0,45,0,0,45,20,
+17,Progression,2026-04-24,Friday,20 min - extended,STRENGTH,30,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,45,20,
+17,Progression,2026-04-25,Saturday,10 min - quick version,BIKE,150,Full race simulation,RUN,40,8km brick,Race pace,Race breakfast,Race nutrition,0,60,8,0,105,28,DRESS REHEARSAL
+17,Progression,2026-04-26,Sunday,10 min - quick version,RUN,60,10km easy recovery,,,Zone 1-2,Full breakfast 2h before,Large recovery meal,0,0,10,0,105,38,
+18,Recovery,2026-04-27,Monday,15 min - hips ankles hamstrings,STRENGTH,25,PUSH + CORE light,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 18 - RECOVERY
+18,Recovery,2026-04-28,Tuesday,10 min - quick version,RUN,40,6km easy,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,6,0,0,6,
+18,Recovery,2026-04-29,Wednesday,15 min - standard routine,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,0,0,6,
+18,Recovery,2026-04-30,Thursday,10 min - quick version,BIKE,70,Easy endurance,,,Zone 2,Toast + honey + coffee,Full breakfast,0,30,0,0,30,6,
+18,Recovery,2026-05-01,Friday,20 min - extended mobility,STRENGTH,25,LEGS light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,0,30,6,
+18,Recovery,2026-05-02,Saturday,10 min - quick version,RUN,50,8km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,8,0,30,14,
+18,Recovery,2026-05-03,Sunday,10 min - quick version,BIKE,80,Easy endurance + brick,RUN,35,7km easy,Zone 1-2,Full breakfast 2h before,Recovery meal,0,40,7,0,70,21,
+19,Taper,2026-05-04,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 19 - TAPER begins
+19,Taper,2026-05-05,Tuesday,10 min - quick version,RUN,55,8km tempo with hills,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,8,0,0,8,
+19,Taper,2026-05-06,Wednesday,15 min - standard routine,RUN,50,8km with race pace segments,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,0,8,0,0,16,
+19,Taper,2026-05-07,Thursday,10 min - quick version,BIKE,80,Race pace intervals 4x8min,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,35,0,0,35,16,
+19,Taper,2026-05-08,Friday,20 min - extended,STRENGTH,25,LEGS light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,0,35,16,
+19,Taper,2026-05-09,Saturday,10 min - quick version,BIKE,100,Moderate long ride,,,Zone 2,Full breakfast 2h before,Recovery meal,0,42,0,0,77,16,
+19,Taper,2026-05-10,Sunday,10 min - quick version,RUN,75,12km - last long run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,12,0,77,28,
+20,Taper,2026-05-11,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Light maintenance,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 20 - Taper continues
+20,Taper,2026-05-12,Tuesday,10 min - quick version,RUN,40,6km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,6,0,0,6,
+20,Taper,2026-05-13,Wednesday,15 min - standard routine,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,0,0,6,
+20,Taper,2026-05-14,Thursday,10 min - quick version,BIKE,60,Easy + race power touches,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,25,0,0,25,6,
+20,Taper,2026-05-15,Friday,20 min - extended,REST,0,Complete rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,25,6,
+20,Taper,2026-05-16,Saturday,10 min - quick version,BIKE,70,Easy endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,30,0,0,55,6,
+20,Taper,2026-05-17,Sunday,10 min - quick version,RUN,55,9km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,9,0,55,15,
+21,Race,2026-05-18,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Core only,,,Light,Toast + honey + coffee,Normal meal,0,0,0,0,0,0,Week 21 - RACE WEEK Grizzlyman
+21,Race,2026-05-19,Tuesday,10 min - quick version,SWIM,40,1200m easy openers,,,Zone 2,Toast + honey + coffee,Full breakfast,1.2,0,0,1.2,0,0,Race prep swim
+21,Race,2026-05-20,Wednesday,15 min - standard routine,RUN,30,5km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,5,1.2,0,5,
+21,Race,2026-05-21,Thursday,10 min - quick version,BIKE,45,Easy spin + openers,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,20,0,1.2,20,5,
+21,Race,2026-05-22,Friday,20 min - extended,REST,0,Complete rest,,,Recovery,Carb loading,Carb loading,0,0,0,1.2,20,5,
+21,Race,2026-05-23,Saturday,10 min - quick version,SWIM,10,Easy openers,BIKE,15,Easy spin,Zone 1-2,Carb loading,Carb loading,0.5,15,0,1.7,35,5,Shake out
+21,Race,2026-05-24,Sunday,Pre-race routine,RACE,300,GRIZZLYMAN HALF IRONMAN,,,Race,Race breakfast 3h before,Race nutrition,1.9,90,21.1,3.6,125,26.1,A RACE!
+22,Recovery,2026-05-25,Monday,15 min - gentle,REST,0,Complete rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,0,0,Week 22 - POST-RACE RECOVERY
+22,Recovery,2026-05-26,Tuesday,15 min - gentle,WALK,30,Easy walk,,,Zone 1,Normal meals,Normal meals,0,0,0,0,0,0,
+22,Recovery,2026-05-27,Wednesday,15 min - gentle,RUN,30,4km very easy jog,,,Zone 1,Normal meals,Normal meals,0,0,4,0,0,4,
+22,Recovery,2026-05-28,Thursday,15 min - gentle,BIKE,40,Very easy spin,,,Zone 1,Normal meals,Normal meals,0,15,0,0,15,4,
+22,Recovery,2026-05-29,Friday,15 min - gentle,REST,0,Rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,15,4,
+22,Recovery,2026-05-30,Saturday,15 min - gentle,RUN,35,5km easy,,,Zone 1,Normal meals,Normal meals,0,0,5,0,15,9,
+22,Recovery,2026-05-31,Sunday,15 min - gentle,BIKE,50,Easy endurance,,,Zone 1-2,Normal meals,Normal meals,0,20,0,0,35,9,
+23,Race,2026-06-01,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Light full body,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 23 - RACE WEEK Czechman
+23,Race,2026-06-02,Tuesday,10 min - quick version,SWIM,40,1200m easy technique,,,Zone 1-2,Toast + honey + coffee,Full breakfast,1.2,0,0,1.2,0,0,Race prep swim
+23,Race,2026-06-03,Wednesday,15 min - standard routine,RUN,35,5km easy,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,5,1.2,0,5,
+23,Race,2026-06-04,Thursday,10 min - quick version,BIKE,50,Easy + openers,,,Zone 2,Toast + honey + coffee,Full breakfast,0,20,0,1.2,20,5,
+23,Race,2026-06-05,Friday,20 min - extended,REST,0,Rest before race,,,Recovery,Carb loading,Carb loading,0,0,0,1.2,20,5,
+23,Race,2026-06-06,Saturday,10 min - quick version,SWIM,20,Easy openers,BIKE,15,Easy spin,Zone 1-2,Carb loading,Carb loading,0.4,10,0,1.6,30,5,Shake out
+23,Race,2026-06-07,Sunday,Pre-race routine,RACE,270,CZECHMAN HALF IRONMAN,,,Race,Race breakfast 3h before,Race nutrition,1.9,90,21.1,3.5,120,26.1,B RACE
+24,Build_2,2026-06-08,Monday,15 min - hips ankles hamstrings,REST,0,Complete rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,0,0,Week 24 - REBUILD begins
+24,Build_2,2026-06-09,Tuesday,10 min - quick version,RUN,40,6km easy,,,Zone 1-2,Toast + honey + coffee,Full breakfast,0,0,6,0,0,6,
+24,Build_2,2026-06-10,Wednesday,15 min - standard routine,RUN,55,Hill Repeats - Vítkov from Karlín,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,8,0,0,14,
+24,Build_2,2026-06-11,Thursday,10 min - quick version,BIKE,70,Easy endurance,STRENGTH,30,PULL,Zone 2,Toast + honey + coffee,Full breakfast,0,28,0,0,28,14,
+24,Build_2,2026-06-12,Friday,20 min - extended,STRENGTH,25,LEGS light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,0,28,14,
+24,Build_2,2026-06-13,Saturday,10 min - quick version,BIKE,95,Moderate endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,40,0,0,68,14,
+24,Build_2,2026-06-14,Sunday,10 min - quick version,RUN,65,10km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,10,0,68,24,
+25,Build_2,2026-06-15,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 25 - Build volume
+25,Build_2,2026-06-16,Tuesday,10 min - quick version,RUN,65,10km trail hills,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,10,0,0,10,
+25,Build_2,2026-06-17,Wednesday,15 min - standard routine,RUN,55,9km tempo 20min,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,9,0,0,19,
+25,Build_2,2026-06-18,Thursday,10 min - quick version,BIKE,90,Sweet spot 3x12min,STRENGTH,30,PULL,Zone 3-4,Toast + honey + coffee,Full breakfast,0,38,0,0,38,19,
+25,Build_2,2026-06-19,Friday,20 min - extended,STRENGTH,30,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,38,19,
+25,Build_2,2026-06-20,Saturday,10 min - quick version,BIKE,115,Long ride + hills,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,48,0,0,86,19,
+25,Build_2,2026-06-21,Sunday,10 min - quick version,RUN,90,15km long trail run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,15,0,86,34,
+26,Build_2,2026-06-22,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 26 - Peak rebuild
+26,Build_2,2026-06-23,Tuesday,10 min - quick version,RUN,55,Hill Repeats - Vítkov from Karlín,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,8,0,0,8,
+26,Build_2,2026-06-24,Wednesday,15 min - standard routine,RUN,60,10km with 5x1km intervals,,,Zone 4,Toast + honey + coffee,Full breakfast,0,0,10,0,0,18,
+26,Build_2,2026-06-25,Thursday,10 min - quick version,BIKE,100,Threshold 2x20min @ FTP,STRENGTH,30,PULL,Zone 4,Toast + honey + coffee,Full breakfast,0,42,0,0,42,18,
+26,Build_2,2026-06-26,Friday,20 min - extended,STRENGTH,30,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,42,18,
+26,Build_2,2026-06-27,Saturday,10 min - quick version,BIKE,120,Race simulation - flat fast,,,Zone 2-3,Full breakfast 2h before,Recovery meal,0,50,0,0,92,18,Vitoria prep
+26,Build_2,2026-06-28,Sunday,10 min - quick version,RUN,90,15km long trail run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,15,0,92,33,
+27,Taper_2,2026-06-29,Monday,15 min - hips ankles hamstrings,STRENGTH,25,PUSH + CORE light,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 27 - Taper for Vitoria
+27,Taper_2,2026-06-30,Tuesday,10 min - quick version,RUN,55,8km tempo with hills,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,8,0,0,8,
+27,Taper_2,2026-07-01,Wednesday,15 min - standard routine,RUN,50,8km race pace,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,0,8,0,0,16,
+27,Taper_2,2026-07-02,Thursday,10 min - quick version,BIKE,75,Race pace intervals 4x8min,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,32,0,0,32,16,
+27,Taper_2,2026-07-03,Friday,20 min - extended,STRENGTH,25,LEGS light,,,Light,Toast + honey + coffee,Full breakfast,0,0,0,0,32,16,
+27,Taper_2,2026-07-04,Saturday,10 min - quick version,BIKE,90,Moderate long ride,,,Zone 2,Full breakfast 2h before,Recovery meal,0,38,0,0,70,16,
+27,Taper_2,2026-07-05,Sunday,10 min - quick version,RUN,65,10km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,10,0,70,26,
+28,Race,2026-07-06,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Core only,,,Light,Toast + honey + coffee,Normal meal,0,0,0,0,0,0,Week 28 - RACE WEEK Vitoria
+28,Race,2026-07-07,Tuesday,10 min - quick version,SWIM,40,1200m easy openers,,,Zone 2,Toast + honey + coffee,Full breakfast,1.2,0,0,1.2,0,0,Race prep swim
+28,Race,2026-07-08,Wednesday,15 min - standard routine,RUN,30,5km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,5,1.2,0,5,
+28,Race,2026-07-09,Thursday,10 min - quick version,BIKE,45,Easy spin + openers,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,20,0,1.2,20,5,
+28,Race,2026-07-10,Friday,20 min - extended,REST,0,Travel to Vitoria,,,Recovery,Carb loading,Carb loading,0,0,0,1.2,20,5,
+28,Race,2026-07-11,Saturday,10 min - quick version,SWIM,25,Easy openers,BIKE,15,Easy spin,Zone 1-2,Carb loading,Carb loading,0.5,10,0,1.7,30,5,Shake out
+28,Race,2026-07-12,Sunday,Pre-race routine,RACE,300,VITORIA-GASTEIZ HALF IRONMAN,,,Race,Race breakfast 3h before,Race nutrition,1.9,90,21.1,3.6,120,26.1,A RACE!
+29,Recovery_2,2026-07-13,Monday,15 min - gentle,REST,0,Complete rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,0,0,Week 29 - POST-VITORIA RECOVERY
+29,Recovery_2,2026-07-14,Tuesday,15 min - gentle,WALK,30,Easy walk,,,Zone 1,Normal meals,Normal meals,0,0,0,0,0,0,
+29,Recovery_2,2026-07-15,Wednesday,15 min - gentle,RUN,30,4km very easy jog,,,Zone 1,Normal meals,Normal meals,0,0,4,0,0,4,
+29,Recovery_2,2026-07-16,Thursday,15 min - gentle,BIKE,40,Very easy spin,,,Zone 1,Normal meals,Normal meals,0,15,0,0,15,4,
+29,Recovery_2,2026-07-17,Friday,15 min - gentle,REST,0,Rest,,,Recovery,Normal meals,Normal meals,0,0,0,0,15,4,
+29,Recovery_2,2026-07-18,Saturday,15 min - gentle,RUN,35,5km easy,,,Zone 1,Normal meals,Normal meals,0,0,5,0,15,9,
+29,Recovery_2,2026-07-19,Sunday,15 min - gentle,BIKE,50,Easy endurance,,,Zone 1-2,Normal meals,Normal meals,0,20,0,0,35,9,
+30,Recovery_2,2026-07-20,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Light work,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 30 - Rebuild
+30,Recovery_2,2026-07-21,Tuesday,10 min - quick version,RUN,45,7km easy,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,7,0,0,7,
+30,Recovery_2,2026-07-22,Wednesday,15 min - standard routine,RUN,50,Hill Repeats - Vítkov from Karlín,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,7,0,0,14,
+30,Recovery_2,2026-07-23,Thursday,10 min - quick version,BIKE,65,Moderate endurance,STRENGTH,30,PULL,Zone 2,Toast + honey + coffee,Full breakfast,0,28,0,0,28,14,
+30,Recovery_2,2026-07-24,Friday,20 min - extended,STRENGTH,25,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,28,14,
+30,Recovery_2,2026-07-25,Saturday,10 min - quick version,BIKE,85,Endurance ride,,,Zone 2,Full breakfast 2h before,Recovery meal,0,35,0,0,63,14,
+30,Recovery_2,2026-07-26,Sunday,10 min - quick version,RUN,65,10km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,10,0,63,24,
+31,Build_3,2026-07-27,Monday,15 min - hips ankles hamstrings,STRENGTH,30,PUSH + CORE,,,Moderate,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 31 - Build for Hradec
+31,Build_3,2026-07-28,Tuesday,10 min - quick version,RUN,65,10km trail hills,,,Zone 3-4,Toast + honey + coffee,Full breakfast,0,0,10,0,0,10,
+31,Build_3,2026-07-29,Wednesday,15 min - standard routine,RUN,55,9km tempo 20min,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,9,0,0,19,
+31,Build_3,2026-07-30,Thursday,10 min - quick version,BIKE,85,Sweet spot 3x10min,STRENGTH,30,PULL,Zone 3-4,Toast + honey + coffee,Full breakfast,0,35,0,0,35,19,
+31,Build_3,2026-07-31,Friday,20 min - extended,STRENGTH,30,LEGS,,,Moderate,Toast + honey + coffee,Full breakfast,0,0,0,0,35,19,
+31,Build_3,2026-08-01,Saturday,10 min - quick version,BIKE,100,Long endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,42,0,0,77,19,
+31,Build_3,2026-08-02,Sunday,10 min - quick version,RUN,80,15km long trail run,,,Zone 2,Full breakfast 2h before,Large recovery meal,0,0,15,0,77,34,
+32,Taper_3,2026-08-03,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Light work,,,Light,Toast + honey + coffee,Protein shake + banana,0,0,0,0,0,0,Week 32 - Mini-taper
+32,Taper_3,2026-08-04,Tuesday,10 min - quick version,RUN,45,7km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,7,0,0,7,
+32,Taper_3,2026-08-05,Wednesday,15 min - standard routine,RUN,50,8km tempo with hills,,,Zone 3,Toast + honey + coffee,Full breakfast,0,0,8,0,0,15,
+32,Taper_3,2026-08-06,Thursday,10 min - quick version,BIKE,65,Easy + race power touches,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,28,0,0,28,15,
+32,Taper_3,2026-08-07,Friday,20 min - extended,REST,0,Active recovery,,,Recovery,Normal meals,Normal meals,0,0,0,0,28,15,
+32,Taper_3,2026-08-08,Saturday,10 min - quick version,BIKE,75,Easy endurance,,,Zone 2,Full breakfast 2h before,Recovery meal,0,32,0,0,60,15,
+32,Taper_3,2026-08-09,Sunday,10 min - quick version,RUN,55,9km easy,,,Zone 2,Full breakfast 2h before,Recovery meal,0,0,9,0,60,24,
+33,Race,2026-08-10,Monday,15 min - hips ankles hamstrings,STRENGTH,25,Core only,,,Light,Toast + honey + coffee,Normal meal,0,0,0,0,0,0,Week 33 - RACE WEEK Hradec
+33,Race,2026-08-11,Tuesday,10 min - quick version,SWIM,35,1000m easy openers,,,Zone 2,Toast + honey + coffee,Normal meal,1.0,0,0,1.0,0,0,Race prep swim
+33,Race,2026-08-12,Wednesday,15 min - standard routine,RUN,25,4km easy + strides,,,Zone 2,Toast + honey + coffee,Full breakfast,0,0,4,1.0,0,4,
+33,Race,2026-08-13,Thursday,10 min - quick version,BIKE,40,Easy spin + openers,,,Zone 2-4,Toast + honey + coffee,Full breakfast,0,18,0,1.0,18,4,
+33,Race,2026-08-14,Friday,20 min - extended,REST,0,Complete rest,,,Recovery,Carb loading,Carb loading,0,0,0,1.0,18,4,
+33,Race,2026-08-15,Saturday,10 min - quick version,SWIM,20,Easy openers,BIKE,15,Easy spin,Zone 1-2,Carb loading,Carb loading,0.4,10,0,1.4,28,4,Shake out
+33,Race,2026-08-16,Sunday,Pre-race routine,RACE,270,HRADEC KRALOVE HALF IRONMAN,,,Race,Race breakfast 3h before,Race nutrition,1.9,90,21.1,3.3,118,25.1,FINAL RACE!

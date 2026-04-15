@@ -1,0 +1,23 @@
+Workout_Name,Discipline,Phase,Duration,Structure,Purpose,Intensity,Notes
+Drill_and_Build,Swim,Initial,60min,"WU 300m, Drills 8x50m, Main 6x200m @ 4:00, CD 200m",Technique foundation,Zone 2,Focus on catch phase - total 1800m
+Threshold_Pyramid,Swim,Progression,65min,"WU 400m, Main pyramid 100-200-300-200-100 @ race pace, CD 200m",Race pace development,Zone 4,Target 1:50/100m
+CSS_Test,Swim,All,45min,"WU 400m, 400m TT, rest 10min, 200m TT, CD 200m",Establish CSS pace,Max,Use results to set training zones
+Long_Aerobic_Swim,Swim,All,70min,"WU 300m, Main 2500-3000m continuous aerobic, CD 200m",Endurance building,Zone 2,Bilateral breathing
+Race_Simulation_Swim,Swim,Taper,50min,"WU 500m, 1900m race pace with buoy turn practice, CD 200m",Race preparation,Race pace,Practice sighting and drafting
+Zone_2_Foundation,Bike,Initial,60-75min,"WU 10min, Main 45-55min Z2, CD 5min",Aerobic engine building,65-75% FTP,Cadence 85-95 rpm
+Sweet_Spot_Intervals,Bike,Progression,75min,"WU 15min, 3x12min @ 88-93% FTP with 5min recovery, CD 10min",Sustainable power development,88-93% FTP,Focus on steady power
+Threshold_Blocks,Bike,Progression,80min,"WU 15min, 2x20min @ FTP with 8min recovery, CD 10min",FTP improvement,95-100% FTP,RPE 8-9
+Hill_Repeats,Bike,Progression,90min,"WU 20min, 6x5min climbing @ 90% FTP with 3min recovery, CD 15min",Climbing strength,Zone 4-5,Simulate Grizzlyman hills
+Long_Endurance_Ride,Bike,All,120-180min,"Z2 ride with nutrition practice, terrain variety",Endurance + fueling practice,Zone 2,Practice race nutrition
+ROUVY_Climber_Plan,Bike,Initial,60-70min,ROUVY structured workout following climber plan,Climbing adaptation,Zone 2-3,Follow ROUVY app instructions
+Easy_Aerobic_Run,Run,Initial,45-60min,Easy pace 5:45-6:15/km,Aerobic base,Zone 2,HR 130-145
+Tempo_Run,Run,Progression,50min,"WU 10min easy, 30min @ 5:00-5:15/km, CD 10min",Lactate threshold improvement,Zone 3-4,RPE 7-8
+Long_Run,Run,All,70-100min,Easy pace with terrain variety,Endurance building,Zone 1-2,Include some trail if possible
+Interval_Run,Run,Progression,55min,"WU 15min, 5x1km @ 4:30-4:45/km with 2min jog, CD 10min",VO2max development,Zone 5,Full recovery between intervals
+Brick_Run,Run,Progression,30-45min,Run immediately after bike workout,Transition adaptation,Zone 2-3,Focus on leg turnover first 10min
+Race_Pace_Run,Run,Taper,45min,"WU 10min, 25min @ race pace 5:15-5:30/km, CD 10min",Race pace confidence,Race pace,Stay relaxed
+PUSH_Strength,Strength,All,45min,"Push-ups 3x10, DB press 3x10, Shoulder press 3x8, Tricep dips 3x10",Upper body push strength,Moderate,Right shoulder: band work
+PULL_Strength,Strength,All,30-40min,"Dead hangs 3x20s, Band pulldowns 3x12, Rows 3x10, Face pulls 3x15",Upper body pull strength,Moderate,Start pull-up progression when ready
+LEGS_Strength,Strength,All,40min,"Goblet squats 3x12, RDL 3x10, Lunges 2x10ea, Step-ups 3x10ea, Calf raises 3x15",Lower body strength,Moderate,48+ hours before long run
+CORE_Strength,Strength,All,20min,"Dead bugs 3x10ea, Plank 3x30-60s, Bird dogs 3x10ea, Pallof press 3x10ea",Core stability,Moderate,Can combine with other sessions
+Morning_Espresso,Mobility,All,10-20min,"Hip 90/90, ankle circles, hamstring sweeps, shoulder CARs",Daily mobility maintenance,Easy,Standard morning routine

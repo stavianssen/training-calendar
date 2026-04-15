@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "exportDate": "2026-01-31T19:59:14.009Z",
+  "totalWorkouts": 29,
+  "progress": {
+    "w1d1": {
+      "notes": "https://strava.app.link/U2j8VYivDZb",
+      "status": "done",
+      "updated": 1767472365178
+    },
+    "w1d2": {
+      "notes": "Done v patek - vymeneno za sobotni plavani\nhttps://strava.app.link/jKKTkOovDZb",
+      "status": "done",
+      "updated": 1767472407527
+    },
+    "w1d3": {
+      "notes": "https://strava.app.link/AyRmwmbUEZb\nSe psem",
+      "status": "done",
+      "updated": 1767545286248
+    },
+    "w2d1": {
+      "status": "done",
+      "notes": "https://strava.app.link/HojTLn5kGZb\n\nMobilita + Warm up\nPush-ups 3x10, \nDB press 3x10, 12kg\nCore circuit 30 min\n- aktivni vis\n- Pritahy kladky v klece\n- Plank a prenosy jednorucky",
+      "updated": 1767619937979
+    },
+    "w2d2": {
+      "status": "done",
+      "notes": "",
+      "strava": "https://strava.app.link/t093YouEHZb",
+      "updated": 1767688268035
+    },
+    "w2d3": {
+      "notes": "Rymicka, nachlazeni… Skip",
+      "status": "skipped",
+      "strava": "",
+      "updated": 1767855250690
+    },
+    "w2d4": {
+      "notes": "Rymicka pokracuje",
+      "status": "skipped",
+      "strava": "",
+      "updated": 1767946275140
+    },
+    "w2d5": {
+      "status": "done",
+      "notes": "DONE - V SOBOTU 10.1\n\nMobilita + Warm up\n\nLEGS\nDead lift 3x12x50\nSquats 50club 30kg\nStep-ups BW+10kg 3x8xEach leg \n\nPULL\nDead hangs 3x30s\nFace pulls 3x12x7.5-12.5kg\nRows 3x12x35-50kg (+60kg extra serie)",
+      "strava": "https://strava.app.link/rU6TmRUdQZb",
+      "updated": 1768166471800
+    },
+    "w2d6": {
+      "status": "done",
+      "notes": "DONE - V NEDELI 11.1\nMrzly nohy, tak jsem to o jeden interval zkratil",
+      "strava": "https://strava.app.link/WxyaOQNdQZb",
+      "updated": 1768166482216
+    },
+    "w2d7": {
+      "notes": "DONE V UTERY 13.1",
+      "status": "done",
+      "strava": "https://strava.app.link/dap5ELPYTZb",
+      "updated": 1768330035984
+    },
+    "w3d1": {
+      "notes": "WARM-UP \n\nPUSH CIRCUIT (30min) - 3 rounds:\n1. Push-ups: 10 reps\n2. Dumbbell Shoulder Press: 12 reps 10kg\n3. Dumbbell Chest Press: 12 reps 12kg\n4. Tricep Dips: 6 reps\n5. Pike Push-ups: 10 reps\nRest: 60s between rounds\n✅\n\nCORE CIRCUIT (10min) - 2 rounds:\n1. Plank: 45-60s\n2. Dead Bug: 12 each side\n3. Russian Twists: 20 total\n4. Bird Dog: 10 each side\n5. Mountain Climbers: 30s\n✅",
+      "status": "done",
+      "strava": "https://strava.app.link/p0IeXzv7RZb",
+      "updated": 1768233184765
+    },
+    "w3d2": {
+      "notes": "DONE V STREDU 14.1",
+      "status": "done",
+      "strava": "https://strava.app.link/veEuo2FjXZb",
+      "updated": 1768503684212
+    },
+    "w3d3": {
+      "notes": "DONE 17.1 - stale tajici snih a byl jsem se psem. Takze bez rovinek",
+      "status": "done",
+      "strava": "https://strava.app.link/s0oFMCj4ZZb",
+      "updated": 1768646980309
+    },
+    "w3d4": {
+      "notes": "",
+      "status": "done",
+      "strava": "https://strava.app.link/9TEifMVqXZb",
+      "updated": 1768509778362
+    },
+    "w3d5": {
+      "notes": "",
+      "status": "skipped",
+      "strava": "",
+      "updated": 1768774037652
+    },
+    "w3d6": {
+      "notes": "Trochu jsem vyuzil spis intenzivnejsi intervaly a FTP builder plan",
+      "status": "done",
+      "strava": "https://strava.app.link/QQrYK5m4ZZb",
+      "updated": 1768647013527
+    },
+    "w3d7": {
+      "notes": "",
+      "status": "done",
+      "strava": "https://strava.app.link/ih7P74Dv2Zb",
+      "updated": 1768774031640
+    },
+    "w4d1": {
+      "status": "done",
+      "notes": "",
+      "strava": "https://strava.app.link/44vc7e163Zb",
+      "updated": 1768857447617
+    },
+    "w4d2": {
+      "notes": "DONE 21.1. Vcera prijela Mamka",
+      "status": "done",
+      "strava": "https://strava.app.link/l6UYxtLY6Zb",
+      "updated": 1769006747586
+    },
+    "w4d5": {
+      "notes": "Done 22.1 kdyz uz jsem ve meste",
+      "status": "done",
+      "strava": "https://strava.app.link/Oe3lKLCG9Zb",
+      "updated": 1769147643718
+    },
+    "w4d3": {
+      "status": "done",
+      "notes": "Done 23.1, ale jen 4.80 easy + strides... nebylo vic casu pres obed",
+      "strava": "https://strava.app.link/vkAt0mM79Zb",
+      "updated": 1769170469110
+    },
+    "w4d4": {
+      "notes": "DONE 24.1 Pouze bike",
+      "status": "done",
+      "strava": "https://strava.app.link/botQQCLYb0b",
+      "updated": 1769267030367
+    },
+    "w4d6": {
+      "notes": "DONE V NEDELI RANO.",
+      "status": "done",
+      "strava": "https://strava.app.link/r4fIm6Uze0b",
+      "updated": 1769402292230
+    },
+    "w4d7": {
+      "notes": "Done, s kocarkem bohuzel pouze 10,5. Navic na mne mozna zas neco leze",
+      "status": "done",
+      "strava": "https://strava.app.link/z0HnM3Pze0b",
+      "updated": 1769402254658
+    },
+    "w5d1": {
+      "notes": "Rychle fitko pred offsitem. Jana K ridi 🫣 ",
+      "status": "done",
+      "strava": "https://strava.app.link/LxFQB3WJe0b",
+      "updated": 1769410743730
+    },
+    "w5d5": {
+      "status": "done",
+      "notes": "DONE 27.1 na offsite",
+      "strava": "https://strava.app.link/lTWDKOCwg0b",
+      "updated": 1769503623880
+    },
+    "w5d3": {
+      "status": "done",
+      "notes": "DONE 31.1 az po dozvukach rymicky. Se psem 8km",
+      "strava": "https://strava.app.link/Kd6WMH8Rn0b",
+      "updated": 1769886098893
+    },
+    "w5d4": {
+      "status": "done",
+      "notes": "DONE 31.1... trochu delsi, ale easy tempo po rymicce",
+      "strava": "https://strava.app.link/C1HoSMbSn0b",
+      "updated": 1769886146192
+    },
+    "w5d2": {
+      "status": "done",
+      "notes": "Rymicka me opet prepadla",
+      "strava": "",
+      "updated": 1769886162207
+    }
+  }
+}

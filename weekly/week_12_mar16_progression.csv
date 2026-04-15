@@ -1,0 +1,24 @@
+Day,Date,Time,Session_Type,Session_Name,Duration,Details,Zone,Equipment,Nutrition_Pre,Nutrition_Post,Notes
+Monday,2026-03-16,05:30,Mobility,Morning Espresso,15,Ankles hips hamstrings,Easy,Mat,Coffee,N/A,Hill work begins
+Monday,2026-03-16,06:00,Strength,PUSH + CORE,45,"Push-ups, DB press, Core circuit",Moderate,Dumbbells bands,Toast + honey,Protein shake + banana,
+Tuesday,2026-03-17,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Tuesday,2026-03-17,06:00,Swim,Race Pace Sets,70,"WU 400m, Main 8x250m @ 1:50/100m, CD 300m",Zone 3-4,Paddles,Toast + honey,Full breakfast,Total: 2600m
+Wednesday,2026-03-18,05:30,Mobility,Morning Espresso,15,Standard routine,Easy,Mat,Coffee,N/A,
+Wednesday,2026-03-18,06:00,Run,Hill Intervals,60,9km with 6x3min hill + jog recovery,Zone 3-4,Running shoes,Toast + honey,Full breakfast,
+Thursday,2026-03-19,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Thursday,2026-03-19,06:00,Bike,Hill Repeats,95,"WU 20min, 6x5min climbing @ 90% FTP, CD 15min",Zone 4,Tacx trainer,Toast + honey,Full breakfast,
+Thursday,2026-03-19,After bike,Strength,PULL,30,"Dead hangs, Rows, Face pulls",Moderate,Bands dumbbells,N/A,Full breakfast,
+Friday,2026-03-20,05:30,Mobility,Morning Espresso,20,Extended version,Easy,Mat roller,Coffee,N/A,
+Friday,2026-03-20,06:00,Strength,LEGS,40,"Squats, RDL, Lunges, Step-ups",Moderate,Dumbbells,Toast + honey,Full breakfast,
+Saturday,2026-03-21,07:00,Bike,Long Ride with Climbs,130,Grizzlyman simulation,Zone 2-3,Tacx or road,Full breakfast 2h before,Recovery meal,
+Sunday,2026-03-22,07:00,Run,Long Run,100,16km long run,Zone 2,Running shoes,Full breakfast 2h before,Large recovery meal,
+
+WEEKLY TOTALS:
+Swim: 2.6 km
+Bike: ~95 km
+Run: 25 km
+Strength: 3 sessions
+Mobility: 6 sessions
+Total Training: ~10.0 hours
+
+WEEK FOCUS: Hill work emphasis for Grizzlyman preparation.

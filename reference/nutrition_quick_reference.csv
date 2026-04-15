@@ -1,0 +1,19 @@
+Scenario,Timing,Food,Carbs_g,Protein_g,Notes
+Pre_Morning_Training,30-60min before,Toast + honey + coffee,50-75,5,Your standard routine
+Pre_Long_Session,2-3h before,Full breakfast - oats + toast + banana,100-150,20,For sessions >90min
+Post_Easy_Session,Within 60min,Normal meal or shake + banana,40,25,If meal >2h away
+Post_Hard_Session,Within 30min,Protein shake + banana + honey,60,30,Immediate refuel critical
+Post_Long_Session,Within 30min + 2h,Shake immediately then large meal,80+80,30+40,Two-stage recovery
+Race_Morning,3h before,Oats + toast + Clif bar + banana,150-225,20,Stay hydrated - sip water
+Race_Pre_Start,15min before,Gel + water,25,0,Final top-up
+Race_Swim,N/A,Nothing,0,0,Stay relaxed
+Race_Bike_Start,Km 10,Start Infinit,80-90/hour,0,Drink consistently
+Race_Bike_Ongoing,Every 20-30min,Infinit + Sponser gel alternating,80-90/hour,0,Target 350-400g total on bike
+Race_T2,Transition,Gel + water,25,0,Quick fueling
+Race_Run,Every 25-30min,Gel + water/cola at aid stations,60/hour,0,Walk through aid stations
+Race_Final_5km,When needed,Gel or cola,15-25,0,Caffeine boost if available
+Post_Race_Immediate,Within 30min,Recovery shake + simple carbs,60,30,Start recovery immediately
+Post_Race_2h,2 hours after,Large balanced meal,100,40,Celebrate appropriately
+Recovery_Day,Throughout day,Normal balanced meals,200-300,100-120,Slightly reduced carbs
+Heavy_Training_Day,Throughout day,High carb meals,400-500,120-140,Fuel the work
+Carb_Loading,3 days before race,Increase carb intake,500-600,100,Reduce fiber last 24h

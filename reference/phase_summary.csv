@@ -1,0 +1,10 @@
+Phase,Weeks,Start_Date,End_Date,Focus,Swim_Weekly,Bike_Weekly,Run_Weekly,Strength_Sessions,Key_Races
+Intro,1,2026-01-02,2026-01-04,Short intro week - establish routine,1.5km,30km,10km,1,None
+Initial,2-10,2026-01-05,2026-03-08,Aerobic base + technique foundation,3-5km,55-90km,25-42km,3,None
+Progression,11-18,2026-03-09,2026-05-03,Intensity + hills + race simulation,4.5-5.5km,85-100km,40-48km,2,None
+Taper,19-21,2026-05-04,2026-05-24,Reduce volume + sharpen speed,2.5-4km,45-75km,20-35km,1,Grizzlyman (May 24)
+Recovery,22-23,2026-05-25,2026-06-07,Post-race recovery + maintain fitness,2km,30-50km,15-20km,1,Czechman (June 7)
+Build_2,24-26,2026-06-08,2026-06-28,Rebuild fitness + race specific work,4-5km,75-90km,35-42km,2,None
+Taper_2,27-28,2026-06-29,2026-07-12,Taper for A race,2.5-4km,45-70km,20-32km,1,Vitoria-Gasteiz (July 12)
+Recovery_2,29-31,2026-07-13,2026-08-02,Recovery + rebuild for final race,3-4km,50-75km,25-35km,2,None
+Taper_3,32-33,2026-08-03,2026-08-16,Final taper + race,2-3km,40-60km,18-28km,1,Hradec Kralove (Aug 16)

@@ -1,0 +1,24 @@
+Day,Date,Time,Session_Type,Session_Name,Duration,Details,Zone,Equipment,Nutrition_Pre,Nutrition_Post,Notes
+Monday,2026-02-09,05:30,Mobility,Morning Espresso,15,Ankles hips hamstrings,Easy,Mat,Coffee,N/A,Build volume
+Monday,2026-02-09,06:00,Strength,PUSH + CORE,45,"Push-ups, DB press, Core circuit",Moderate,Dumbbells bands,Toast + honey,Protein shake + banana,
+Tuesday,2026-02-10,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Tuesday,2026-02-10,06:00,Swim,Drill + Endurance,65,"WU 300m, Drills 8x50m, Main 10x150m + 4x100m, CD 200m",Zone 2,Paddles optional,Toast + honey,Full breakfast,Total: 2200m
+Wednesday,2026-02-11,05:30,Mobility,Morning Espresso,15,Standard routine,Easy,Mat,Coffee,N/A,
+Wednesday,2026-02-11,06:00,Run,Easy + Strides,60,9km easy + strides,Zone 2,Running shoes,Toast + honey,Full breakfast,
+Thursday,2026-02-12,05:30,Mobility,Morning Espresso,10,Quick version,Easy,Mat,Coffee,N/A,
+Thursday,2026-02-12,06:00,Bike,ROUVY Climber Plan,90,Aerobic endurance,Zone 2-3,Tacx trainer,Toast + honey,Full breakfast,
+Thursday,2026-02-12,After bike,Strength,PULL,35,"Dead hangs, Rows, Face pulls",Moderate,Bands dumbbells,N/A,Full breakfast,
+Friday,2026-02-13,05:30,Mobility,Morning Espresso,20,Extended version,Easy,Mat roller,Coffee,N/A,
+Friday,2026-02-13,06:00,Strength,LEGS,40,"Squats, RDL, Lunges, Step-ups",Moderate,Dumbbells,Toast + honey,Full breakfast,
+Saturday,2026-02-14,07:00,Bike,Long Endurance + Hills,105,Long ride with hills,Zone 2-3,Tacx or road,Full breakfast 2h before,Recovery meal,
+Sunday,2026-02-15,07:00,Run,Long Run,85,13km long run,Zone 1-2,Running shoes,Full breakfast 2h before,Large recovery meal,
+
+WEEKLY TOTALS:
+Swim: 2.2 km
+Bike: ~80 km
+Run: 22 km
+Strength: 3 sessions
+Mobility: 6 sessions
+Total Training: ~8.5 hours
+
+WEEK FOCUS: Continue building volume.
